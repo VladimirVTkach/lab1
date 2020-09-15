@@ -4,12 +4,14 @@ Book::Book(const std::string &name,
            const std::vector<Author> &authors,
            int pages,
            const std::chrono::year_month_day &release_date,
-           const std::string &description) {
+           const std::string &description,
+           const std::map<Character, CharacterRole> &characters) {
     Book::name = name;
     Book::authors = authors;
     Book::pages = pages;
     Book::release_date = release_date;
     Book::description = description;
+    Book::characters = characters;
 }
 
 const std::string &Book::get_name() const {
@@ -32,12 +34,17 @@ const std::string &Book::get_description() const {
     return description;
 }
 
+const std::map<Character, CharacterRole> &Book::get_characters() const {
+    return characters;
+}
+
 bool Book::operator==(const Book &rhs) const {
     return name == rhs.name &&
            authors == rhs.authors &&
            pages == rhs.pages &&
            release_date == rhs.release_date &&
-           description == rhs.description;
+           description == rhs.description &&
+           characters == rhs.characters;
 }
 
 bool Book::operator!=(const Book &rhs) const {
