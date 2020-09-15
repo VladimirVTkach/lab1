@@ -7,11 +7,11 @@ public:
            const std::string &last_name,
            const std::chrono::year_month_day &date_of_birth);
 
-    std::string get_first_name();
+    const std::string &get_first_name() const;
 
-    std::string get_last_name();
+    const std::string &get_last_name() const;
 
-    std::chrono::year_month_day get_date_of_birth();
+    const std::chrono::year_month_day &get_date_of_birth() const;
 
 private:
     std::string first_name;
