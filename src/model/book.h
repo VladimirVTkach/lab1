@@ -1,7 +1,13 @@
 #pragma once
 
 #include <vector>
+#include <map>
 #include "author.h"
+#include "character.h"
+
+enum CharacterRole {
+    MAIN, SECONDARY
+};
 
 class Book {
 public:
@@ -9,7 +15,8 @@ public:
          const std::vector<Author> &authors,
          int pages,
          const std::chrono::year_month_day &release_date,
-         const std::string &description);
+         const std::string &description,
+         const std::map<Character, CharacterRole> &characters);
 
     const std::string &get_name() const;
 
@@ -21,6 +28,8 @@ public:
 
     const std::string &get_description() const;
 
+    const std::map<Character, CharacterRole> &get_characters() const;
+
     bool operator==(const Book &rhs) const;
 
     bool operator!=(const Book &rhs) const;
@@ -29,6 +38,7 @@ private:
     std::string name;
     std::vector<Author> authors;
     int pages;
-    std::chrono::year_month_day release_date;
+    std::chrono::year_month_day release_date{};
     std::string description;
+    std::map<Character, CharacterRole> characters;
 };
