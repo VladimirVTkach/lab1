@@ -5,7 +5,7 @@ Book::Book(const std::string &name,
            int pages,
            const std::chrono::year_month_day &release_date,
            const std::string &description,
-           const std::map<Character, CharacterRole> &characters) {
+           const std::map<CharacterRole, std::vector<Character>> &characters) {
     Book::name = name;
     Book::authors = authors;
     Book::pages = pages;
@@ -34,7 +34,7 @@ const std::string &Book::get_description() const {
     return description;
 }
 
-const std::map<Character, CharacterRole> &Book::get_characters() const {
+const std::map<CharacterRole, std::vector<Character>> &Book::get_characters() const {
     return characters;
 }
 
