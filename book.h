@@ -11,15 +11,15 @@ public:
          const std::chrono::year_month_day &release_date,
          const std::string &description);
 
-    const std::string &getName() const;
+    const std::string &get_name() const;
 
-    const std::vector<Author> &getAuthors() const;
+    const std::vector<Author> &get_authors() const;
 
-    int getPages() const;
+    int get_pages() const;
 
-    const std::chrono::year_month_day &getReleaseDate() const;
+    const std::chrono::year_month_day &get_release_date() const;
 
-    const std::string &getDescription() const;
+    const std::string &get_description() const;
 
 private:
     std::string name;

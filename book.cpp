@@ -12,22 +12,22 @@ Book::Book(const std::string &name,
     Book::description = description;
 }
 
-const std::string &Book::getName() const {
+const std::string &Book::get_name() const {
     return name;
 }
 
-const std::vector<Author> &Book::getAuthors() const {
+const std::vector<Author> &Book::get_authors() const {
     return authors;
 }
 
-int Book::getPages() const {
+int Book::get_pages() const {
     return pages;
 }
 
-const std::chrono::year_month_day &Book::getReleaseDate() const {
+const std::chrono::year_month_day &Book::get_release_date() const {
     return release_date;
 }
 
-const std::string &Book::getDescription() const {
+const std::string &Book::get_description() const {
     return description;
 }
