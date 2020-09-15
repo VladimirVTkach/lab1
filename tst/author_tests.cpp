@@ -18,7 +18,7 @@ TEST(author_tests, test_get_last_name) {
     ASSERT_EQ(last_name, author.get_last_name());
 }
 
-TEST(author_tests, test_get_date_of_birth_name) {
+TEST(author_tests, test_get_date_of_birth) {
     std::chrono::year_month_day date_of_birth = std::chrono::year_month_day(
             std::chrono::year(2020),
             std::chrono::month(9),
