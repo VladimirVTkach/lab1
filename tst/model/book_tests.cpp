@@ -16,7 +16,8 @@ TEST(book_tests, test_get_name) {
               std::vector<Author>(),
               0,
               std::chrono::year_month_day(),
-              "");
+              "",
+              std::map<CharacterRole, std::vector<Character>>());
     ASSERT_EQ(name, book.get_name());
 }
 
@@ -31,7 +32,8 @@ TEST(book_tests, test_get_authors) {
               authors,
               0,
               std::chrono::year_month_day(),
-              "");
+              "",
+              std::map<CharacterRole, std::vector<Character>>());
     ASSERT_EQ(authors, book.get_authors());
 }
 
@@ -41,7 +43,8 @@ TEST(book_tests, test_get_pages) {
               std::vector<Author>(),
               pages,
               std::chrono::year_month_day(),
-              "");
+              "",
+              std::map<CharacterRole, std::vector<Character>>());
     ASSERT_EQ(pages, book.get_pages());
 }
 
@@ -54,7 +57,8 @@ TEST(book_tests, test_get_release_date) {
               std::vector<Author>(),
               0,
               release_date,
-              "");
+              "",
+              std::map<CharacterRole, std::vector<Character>>());
     ASSERT_EQ(release_date, book.get_release_date());
 }
 
@@ -64,6 +68,21 @@ TEST(book_tests, test_get_description) {
               std::vector<Author>(),
               0,
               std::chrono::year_month_day(),
-              description);
+              description,
+              std::map<CharacterRole, std::vector<Character>>());
     ASSERT_EQ(description, book.get_description());
+}
+
+TEST(book_tests, test_get_characters) {
+    Character character("Woland", "evil character");
+    std::map<CharacterRole, std::vector<Character>> characters;
+    characters[CharacterRole::MAIN] = std::vector<Character>();
+    characters[CharacterRole::MAIN].push_back(character);
+    Book book("",
+              std::vector<Author>(),
+              0,
+              std::chrono::year_month_day(),
+              "",
+              characters);
+    ASSERT_EQ(characters, book.get_characters());
 }
