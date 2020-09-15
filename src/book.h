@@ -21,6 +21,10 @@ public:
 
     const std::string &get_description() const;
 
+    bool operator==(const Book &rhs) const;
+
+    bool operator!=(const Book &rhs) const;
+
 private:
     std::string name;
     std::vector<Author> authors;

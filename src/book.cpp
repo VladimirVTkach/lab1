@@ -1,10 +1,10 @@
 #include "book.h"
 
 Book::Book(const std::string &name,
-     const std::vector<Author> &authors,
-     int pages,
-     const std::chrono::year_month_day &release_date,
-     const std::string &description) {
+           const std::vector<Author> &authors,
+           int pages,
+           const std::chrono::year_month_day &release_date,
+           const std::string &description) {
     Book::name = name;
     Book::authors = authors;
     Book::pages = pages;
@@ -30,4 +30,16 @@ const std::chrono::year_month_day &Book::get_release_date() const {
 
 const std::string &Book::get_description() const {
     return description;
+}
+
+bool Book::operator==(const Book &rhs) const {
+    return name == rhs.name &&
+           authors == rhs.authors &&
+           pages == rhs.pages &&
+           release_date == rhs.release_date &&
+           description == rhs.description;
+}
+
+bool Book::operator!=(const Book &rhs) const {
+    return !(rhs == *this);
 }
