@@ -15,6 +15,10 @@ public:
 
     const std::chrono::year_month_day &get_date_of_birth() const;
 
+    bool operator==(const Author &rhs) const;
+
+    bool operator!=(const Author &rhs) const;
+
 private:
     std::string first_name;
     std::string last_name;
