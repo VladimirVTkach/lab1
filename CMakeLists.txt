@@ -4,10 +4,14 @@ project(lab1)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(lab1 src/main.cpp
-        src/author.h
-        src/author.cpp
-        src/book.h
-        src/book.cpp tst/author_tests.cpp tst/tests_runner.cpp tst/tests_runner.h tst/book_tests.cpp)
+        src/model/author.h
+        src/model/author.cpp
+        src/model/book.h
+        src/model/book.cpp
+        tst/model/author_tests.cpp
+        tst/model/tests_runner.cpp
+        tst/model/tests_runner.h
+        tst/model/book_tests.cpp)
 
 add_subdirectory(tst/lib/googletest-master)
 include_directories(tst/lib/googletest-master/googletest include)
