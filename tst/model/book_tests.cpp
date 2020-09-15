@@ -2,14 +2,6 @@
 #include <chrono>
 #include "../../src/model/book.h"
 
-bool operator==(const std::vector<Author> &lhs, const std::vector<Author> &rhs) {
-    if (lhs.size() != rhs.size()) return false;
-    for (int i = 0; i < lhs.size(); i++) {
-        if (lhs[i] != rhs[i]) return false;
-    }
-    return true;
-}
-
 TEST(book_tests, test_get_name) {
     std::string name = "Generation P";
     Book book(name,
