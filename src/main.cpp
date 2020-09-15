@@ -1,4 +1,4 @@
-#include "../tst/tests_runner.h"
+#include "../tst/model/tests_runner.h"
 
 int main() {
     return run_all_tests();
