@@ -5,14 +5,13 @@ Book::Book(const std::string &name,
            int pages,
            const std::chrono::year_month_day &release_date,
            const std::string &description,
-           const std::map<CharacterRole, std::vector<Character>> &characters) {
-    Book::name = name;
-    Book::authors = authors;
-    Book::pages = pages;
-    Book::release_date = release_date;
-    Book::description = description;
-    Book::characters = characters;
-}
+           const std::map<CharacterRole, std::vector<Character>> &characters) :
+        name(name),
+        authors(authors),
+        pages(pages),
+        release_date(release_date),
+        description(description),
+        characters(characters) {}
 
 const std::string &Book::get_name() const {
     return name;
