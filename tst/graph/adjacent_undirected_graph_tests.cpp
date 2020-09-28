@@ -98,7 +98,6 @@ TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_not_linked
     adjacent_undirected_graph.AddVertex(vertex3);
 
     adjacent_undirected_graph.AddEdge(vertex1, vertex2);
-    adjacent_undirected_graph.AddEdge(vertex2, vertex3);
 
     ASSERT_FALSE(adjacent_undirected_graph.IsLinked());
 }
