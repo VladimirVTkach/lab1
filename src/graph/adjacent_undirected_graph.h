@@ -31,6 +31,15 @@ public:
         return 0;
     }
 
+    std::vector<Edge<Vertex<T>>> GetAdjacentEdgesOrEmptyList(Vertex<T> &vertex) override {
+        const auto &found_vertex_it = FindVertexIt(vertex);
+        if (found_vertex_it == adjacency_lists_.end()) {
+            return std::vector<Edge<Vertex<T>>>();
+        } else {
+            return found_vertex_it->second;
+        }
+    }
+
     size_t GetVerticesCount() override {
         return adjacency_lists_.size();
     }
