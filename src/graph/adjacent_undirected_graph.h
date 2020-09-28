@@ -132,7 +132,7 @@ private:
                     } else {
                         target_vertex = vertex_adjacent_edge.left;
                     }
-                    if (!parents.contains(target_vertex)) {
+                    if (!parents.contains(target_vertex) && target_vertex != left_vertex_repr) {
                         parents[target_vertex] = vertex;
                         next.push_back(target_vertex);
                     }
