@@ -16,8 +16,7 @@ public:
     }
 
     void RemoveVertex(const Vertex<T> &vertex) override {
-        const auto &found_vertex_it = adjacency_lists_.find(vertex);
-        adjacency_lists_.erase(found_vertex_it);
+        adjacency_lists_.erase(vertex);
     }
 
     void RemoveEdge(const Edge<T> &edge) override {
