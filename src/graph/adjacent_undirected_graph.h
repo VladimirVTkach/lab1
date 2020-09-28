@@ -149,6 +149,6 @@ private:
     }
 
     std::map<Vertex<T>, std::set<Edge<T>>> adjacency_lists_;
-    size_t edges_count_;
+    size_t edges_count_ = 0;
 };
 
