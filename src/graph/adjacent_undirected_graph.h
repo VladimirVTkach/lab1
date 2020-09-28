@@ -7,37 +7,47 @@
 template<typename T>
 class AdjacentUndirectedGraph : public UndirectedGraph<T> {
 public:
-    void AddVertex(const Vertex<T> &vertex) override {
-        adjacency_lists_.try_emplace(vertex, std::set<Edge<T>>());
+    void AddVertex(const T &vertex) override {
+        Vertex<T> vertex_repr = GetVertexRepr(vertex);
+        adjacency_lists_.try_emplace(vertex_repr, std::set<Edge<T>>());
     }
 
-    void AddEdge(const Edge<T> &edge) override {
-        const Vertex<T> &left = edge.left;
-        const Vertex<T> &right = edge.right;
+    void AddEdge(const T &left, T &right) override {
+        Vertex<T> left_vertex_repr = GetVertexRepr(left);
+        Vertex<T> right_vertex_repr = GetVertexRepr(right);
 
-        if (!adjacency_lists_.contains(left) || !adjacency_lists_.contains(right)) {
+        if (!adjacency_lists_.contains(left_vertex_repr) ||
+            !adjacency_lists_.contains(right_vertex_repr)) {
             throw std::runtime_error("one or more vertices doesn't exist");
         }
 
-        InsertEdge(left, edge);
-        InsertEdge(right, edge);
+        Edge<T> left_edge_repr = GetEdgeRepr(left_vertex_repr, right_vertex_repr);
+        Edge<T> right_edge_repr = GetEdgeRepr(right_vertex_repr, left_vertex_repr);
+
+        InsertEdge(left_vertex_repr, left_edge_repr);
+        InsertEdge(right_vertex_repr, right_edge_repr);
         ++edges_count_;
     }
 
-    void RemoveVertex(const Vertex<T> &vertex) override {
-        adjacency_lists_.erase(vertex);
+    void RemoveVertex(const T &vertex) override {
+        Vertex<T> vertex_repr = GetVertexRepr(vertex);
+        adjacency_lists_.erase(vertex_repr);
     }
 
-    void RemoveEdge(const Edge<T> &edge) override {
-        const Vertex<T> &left = edge.left;
-        const Vertex<T> &right = edge.right;
+    void RemoveEdge(const T &left, T &right) override {
+        const Vertex<T> left_vertex_repr = GetVertexRepr(left);
+        const Vertex<T> right_vertex_repr = GetVertexRepr(right);
 
-        if (!adjacency_lists_.contains(left) || !adjacency_lists_.contains(right)) {
+        if (!adjacency_lists_.contains(left_vertex_repr) ||
+            !adjacency_lists_.contains(right_vertex_repr)) {
             throw std::runtime_error("one or more vertices doesn't exist");
         }
 
-        DeleteEdge(left, edge);
-        DeleteEdge(right, edge);
+        Edge<T> left_edge_repr = GetEdgeRepr(left_vertex_repr, right_vertex_repr);
+        Edge<T> right_edge_repr = GetEdgeRepr(right_vertex_repr, left_vertex_repr);
+
+        DeleteEdge(left_vertex_repr, left_edge_repr);
+        DeleteEdge(right_vertex_repr, right_edge_repr);
         --edges_count_;
     }
 
@@ -45,7 +55,7 @@ public:
         return false;
     }
 
-    int GetDistance(const Vertex<T> &src, const Vertex<T> &dst) override {
+    int GetDistance(const T &left, const T &right) override {
         return 0;
     }
 
@@ -57,8 +67,9 @@ public:
         return edges_count_;
     }
 
-    size_t GetAdjacentEdgesCount(const Vertex<T> &vertex) override {
-        auto vertex_iterator = adjacency_lists_.find(vertex);
+    size_t GetAdjacentEdgesCount(const T &vertex) override {
+        Vertex<T> vertex_repr = GetVertexRepr(vertex);
+        auto vertex_iterator = adjacency_lists_.find(vertex_repr);
         if (vertex_iterator == adjacency_lists_.end()) {
             throw std::runtime_error("vertex doesn't exist");
         } else {
@@ -72,6 +83,14 @@ public:
 
 
 private:
+    Vertex<T> GetVertexRepr(const T &vertex) {
+        return Vertex<T>{vertex};
+    }
+
+    Edge<T> GetEdgeRepr(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
+        return Edge<T>{left_vertex_repr, right_vertex_repr};
+    }
+
     void InsertEdge(const Vertex<T> &vertex, const Edge<T> &edge) {
         auto vertex_iterator = adjacency_lists_.find(vertex);
         std::set<Edge<T>> &vertex_edges = vertex_iterator->second;
