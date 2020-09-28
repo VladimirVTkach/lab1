@@ -80,7 +80,11 @@ public:
         if (left_vertex_repr_it == path.end() || right_vertex_repr_it == path.end()) {
             return 0;
         } else {
-            return path.size();
+            size_t path_size = path.size();
+            if (path_size % 2 == 0) {
+                --path_size;
+            }
+            return path_size;
         }
     }
 
