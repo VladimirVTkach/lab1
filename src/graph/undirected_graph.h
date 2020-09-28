@@ -79,7 +79,7 @@ public:
 
     virtual bool IsLinked() = 0;
 
-    virtual int GetDistance(const Vertex<T> &left, const Vertex<T> &right) = 0;
+    virtual int GetDistance(const T &left, const T &right) = 0;
 
     virtual size_t GetVerticesCount() = 0;
 
