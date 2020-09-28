@@ -62,6 +62,6 @@ private:
         return found_vertex_it;
     }
 
-    std::map<Vertex<T>, std::vector<Edge<T>>> adjacency_lists_;
+    std::map<Vertex<T>, std::set<Edge<T>>> adjacency_lists_;
 };
 
