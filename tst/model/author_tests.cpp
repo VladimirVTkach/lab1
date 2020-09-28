@@ -7,7 +7,7 @@ TEST(author_tests, test_get_first_name) {
     Author author(first_name,
                   "",
                   std::chrono::year_month_day());
-    ASSERT_EQ(first_name, author.get_first_name());
+    ASSERT_EQ(first_name, author.GetFirstName());
 }
 
 TEST(author_tests, test_get_last_name) {
@@ -15,7 +15,7 @@ TEST(author_tests, test_get_last_name) {
     Author author("",
                   last_name,
                   std::chrono::year_month_day());
-    ASSERT_EQ(last_name, author.get_last_name());
+    ASSERT_EQ(last_name, author.GetLastName());
 }
 
 TEST(author_tests, test_get_date_of_birth) {
@@ -26,5 +26,5 @@ TEST(author_tests, test_get_date_of_birth) {
     Author author("",
                   "",
                   date_of_birth);
-    ASSERT_EQ(date_of_birth, author.get_date_of_birth());
+    ASSERT_EQ(date_of_birth, author.GetDateOfBirth());
 }
