@@ -17,6 +17,9 @@ public:
 
         auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptyList(lhs);
         auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptyList(lhs);
+
+        lhs_adjacent_edges.insert(edge);
+        rhs_adjacent_edges.insert(edge);
     }
 
     void RemoveVertex(const Vertex<T> &vertex) override {
