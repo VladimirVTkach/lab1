@@ -74,8 +74,12 @@ public:
         std::map<Vertex<T>, Vertex<T>> parents = Bfs(left_vertex_repr, right_vertex_repr);
         auto right_vertex_repr_it = parents.find(right_vertex_repr);
 
-        if (right_vertex_repr_it == parents.end()) {
+        if (left_vertex_repr == right_vertex_repr) {
             return 0;
+        }
+
+        if (right_vertex_repr_it == parents.end()) {
+            return -1;
         } else {
             Vertex<T> right_vertex_parent_repr = right_vertex_repr_it->second;
             size_t path_size = 1;
