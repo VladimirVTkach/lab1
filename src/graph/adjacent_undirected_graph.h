@@ -20,6 +20,11 @@ public:
 
         lhs_adjacent_edges.insert(edge);
         rhs_adjacent_edges.insert(edge);
+
+        adjacency_lists_.insert_or_assign(lhs, lhs_adjacent_edges);
+        adjacency_lists_.insert_or_assign(rhs, rhs_adjacent_edges);
+
+        ++edges_count_;
     }
 
     void RemoveVertex(const Vertex<T> &vertex) override {
