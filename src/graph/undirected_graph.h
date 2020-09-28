@@ -13,6 +13,7 @@ struct Edge {
 
 template<typename T>
 class UndirectedGraph {
+public:
     virtual void AddVertex(const Vertex<T> &vertex) = 0;
 
     virtual void AddEdge(const Edge<T> &edge) = 0;
