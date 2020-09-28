@@ -1,20 +1,20 @@
 #include "character.h"
 
 Character::Character(const std::string &name, const std::string &biography) :
-    name(name),
-    biography(biography) {}
+    name_(name),
+    biography_(biography) {}
 
 const std::string &Character::get_name() const {
-    return Character::name;
+    return Character::name_;
 }
 
 const std::string &Character::get_biography() const {
-    return Character::biography;
+    return Character::biography_;
 }
 
 bool Character::operator==(const Character &rhs) const {
-    return name == rhs.name &&
-           biography == rhs.biography;
+    return name_ == rhs.name_ &&
+           biography_ == rhs.biography_;
 }
 
 bool Character::operator!=(const Character &rhs) const {

@@ -14,6 +14,6 @@ public:
     bool operator!=(const Character &rhs) const;
 
 private:
-    std::string name;
-    std::string biography;
+    std::string name_;
+    std::string biography_;
 };
