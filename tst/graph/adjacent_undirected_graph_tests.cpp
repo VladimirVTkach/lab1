@@ -68,7 +68,7 @@ TEST(adjacent_undirected_graph_test, test_remove_int_edge) {
     ASSERT_FALSE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
 }
 
-TEST(adjacent_undirected_graph_test, test_int_is_linked) {
+TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_linked) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -84,6 +84,23 @@ TEST(adjacent_undirected_graph_test, test_int_is_linked) {
     adjacent_undirected_graph.AddEdge(vertex3, vertex1);
 
     ASSERT_TRUE(adjacent_undirected_graph.IsLinked());
+}
+
+TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_not_linked) {
+    AdjacentUndirectedGraph<int> adjacent_undirected_graph;
+
+    int vertex1{1};
+    int vertex2{2};
+    int vertex3{3};
+
+    adjacent_undirected_graph.AddVertex(vertex1);
+    adjacent_undirected_graph.AddVertex(vertex2);
+    adjacent_undirected_graph.AddVertex(vertex3);
+
+    adjacent_undirected_graph.AddEdge(vertex1, vertex2);
+    adjacent_undirected_graph.AddEdge(vertex2, vertex3);
+
+    ASSERT_FALSE(adjacent_undirected_graph.IsLinked());
 }
 
 TEST(adjacent_undirected_graph_test, test_int_get_distance) {
