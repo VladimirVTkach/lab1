@@ -71,16 +71,17 @@ public:
             throw std::runtime_error("one or more vertices doesn't exist");
         }
 
-        std::vector<Vertex<T>> path = Bfs(left_vertex_repr, right_vertex_repr);
-        auto left_vertex_repr_it = std::find(path.begin(), path.end(), left_vertex_repr);
-        auto right_vertex_repr_it = std::find(path.begin(), path.end(), right_vertex_repr);
+        std::map<Vertex<T>, Vertex<T>> parents = Bfs(left_vertex_repr, right_vertex_repr);
+        auto right_vertex_repr_it = parents.find(right_vertex_repr);
 
-        if (left_vertex_repr_it == path.end() || right_vertex_repr_it == path.end()) {
+        if (right_vertex_repr_it == parents.end()) {
             return 0;
         } else {
-            size_t path_size = path.size();
-            if (path_size % 2 == 0) {
-                --path_size;
+            Vertex<T> right_vertex_parent_repr = right_vertex_repr_it->second;
+            size_t path_size = 1;
+            while (right_vertex_parent_repr != left_vertex_repr) {
+                ++path_size;
+                right_vertex_parent_repr = parents[right_vertex_parent_repr];
             }
             return path_size;
         }
@@ -118,20 +119,28 @@ private:
         return Edge<T>{left_vertex_repr, right_vertex_repr};
     }
 
-    std::vector<Vertex<T>> Bfs(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
-        std::vector<Vertex<T>> path = {left_vertex_repr};
+    std::map<Vertex<T>, Vertex<T>> Bfs(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
+        std::map<Vertex<T>, Vertex<T>> parents;
         std::vector<Vertex<T>> frontier = {left_vertex_repr};
         while (!frontier.empty()) {
             std::vector<Vertex<T>> next;
             for (const auto &vertex: frontier) {
-                if (std::find(path.begin(), path.end(), vertex) == path.end()) {
-                    path.push_back(vertex);
-                    next.push_back(vertex);
+                for (const auto &vertex_adjacent_edge: adjacency_lists_[vertex]) {
+                    Vertex<T> target_vertex;
+                    if (vertex_adjacent_edge.left == vertex) {
+                        target_vertex = vertex_adjacent_edge.right;
+                    } else {
+                        target_vertex = vertex_adjacent_edge.left;
+                    }
+                    if (!parents.contains(target_vertex)) {
+                        parents[target_vertex] = vertex;
+                        next.push_back(target_vertex);
+                    }
                 }
             }
             frontier = next;
         }
-        return path;
+        return parents;
     }
 
     void InsertEdge(const Vertex<T> &vertex, const Edge<T> &edge) {
