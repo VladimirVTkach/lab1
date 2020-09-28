@@ -76,11 +76,6 @@ public:
 
 
 private:
-    const auto &FindVertexIt(const Vertex<T> &vertex) {
-        const auto &found_vertex_it = adjacency_lists_.find(vertex);
-        return found_vertex_it;
-    }
-
     std::map<Vertex<T>, std::set<Edge<T>>> adjacency_lists_;
     size_t edges_count_;
 };
