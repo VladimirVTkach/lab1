@@ -85,5 +85,5 @@ public:
 
     virtual size_t GetEdgesCount() = 0;
 
-    virtual size_t GetAdjacentEdgesCount(Vertex<T> vertex) = 0;
+    virtual size_t GetAdjacentEdgesCount(const Vertex<T> &vertex) = 0;
 };
