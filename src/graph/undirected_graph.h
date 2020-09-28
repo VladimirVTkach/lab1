@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 template<typename T>
 struct Vertex {
     T data;
@@ -25,4 +27,10 @@ public:
     virtual bool IsLinked() = 0;
 
     virtual int GetDistance(const Vertex<T> &src, const Vertex<T> &dst) = 0;
+
+    virtual size_t GetVerticesCount() = 0;
+
+    virtual size_t GetEdgesCount() = 0;
+
+    virtual size_t GetAdjacentEdgesCount(Vertex<T> vertex) = 0;
 };
