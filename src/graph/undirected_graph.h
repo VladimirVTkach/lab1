@@ -81,8 +81,6 @@ public:
 
     virtual int GetDistance(const Vertex<T> &src, const Vertex<T> &dst) = 0;
 
-    virtual std::set<Edge<T>> &GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) = 0;
-
     virtual size_t GetVerticesCount() = 0;
 
     virtual size_t GetEdgesCount() = 0;
