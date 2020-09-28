@@ -33,12 +33,12 @@ struct Vertex {
 
 template<typename T>
 struct Edge {
-    Vertex<T> lhs;
-    Vertex<T> rhs;
+    Vertex<T> left;
+    Vertex<T> right;
 
     bool operator==(const Edge &rhs) const {
-        return lhs == rhs.lhs &&
-               rhs == rhs.rhs;
+        return left == rhs.left &&
+               right == rhs.right;
     }
 
     bool operator!=(const Edge &rhs) const {
@@ -46,11 +46,11 @@ struct Edge {
     }
 
     bool operator<(const Edge &rhs) const {
-        if (lhs < rhs.lhs)
+        if (left < rhs.left)
             return true;
-        if (rhs.lhs < lhs)
+        if (rhs.left < left)
             return false;
-        return rhs < rhs.rhs;
+        return right < rhs.right;
     }
 
     bool operator>(const Edge &rhs) const {
