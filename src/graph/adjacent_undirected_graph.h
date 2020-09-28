@@ -54,7 +54,14 @@ public:
     }
 
     bool IsLinked() override {
-        return false;
+        for (const auto &[k1, v1]: adjacency_lists_) {
+            for (const auto &[k2, v2]: adjacency_lists_) {
+                if (GetDistance(k1.data, k2.data) == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     int GetDistance(const T &left, const T &right) override {
