@@ -2,6 +2,8 @@
 
 #include <map>
 #include <set>
+#include <vector>
+#include <algorithm>
 #include "undirected_graph.h"
 
 template<typename T>
@@ -56,7 +58,23 @@ public:
     }
 
     int GetDistance(const T &left, const T &right) override {
-        return 0;
+        const Vertex<T> left_vertex_repr = GetVertexRepr(left);
+        const Vertex<T> right_vertex_repr = GetVertexRepr(right);
+
+        if (!adjacency_lists_.contains(left_vertex_repr) ||
+            !adjacency_lists_.contains(right_vertex_repr)) {
+            throw std::runtime_error("one or more vertices doesn't exist");
+        }
+
+        std::vector<Vertex<T>> path = Bfs(left_vertex_repr, right_vertex_repr);
+        auto left_vertex_repr_it = std::find(path.begin(), path.end(), left_vertex_repr);
+        auto right_vertex_repr_it = std::find(path.begin(), path.end(), right_vertex_repr);
+
+        if (left_vertex_repr_it == path.end() || right_vertex_repr_it == path.end()) {
+            return 0;
+        } else {
+            return path.size();
+        }
     }
 
     size_t GetVerticesCount() override {
@@ -89,6 +107,22 @@ private:
 
     Edge<T> GetEdgeRepr(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
         return Edge<T>{left_vertex_repr, right_vertex_repr};
+    }
+
+    std::vector<Vertex<T>> Bfs(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
+        std::vector<Vertex<T>> path = {left_vertex_repr};
+        std::vector<Vertex<T>> frontier = {left_vertex_repr};
+        while (!frontier.empty()) {
+            std::vector<Vertex<T>> next;
+            for (const auto &vertex: frontier) {
+                if (std::find(path.begin(), path.end(), vertex) == path.end()) {
+                    path.push_back(vertex);
+                    next.push_back(vertex);
+                }
+            }
+            frontier = next;
+        }
+        return path;
     }
 
     void InsertEdge(const Vertex<T> &vertex, const Edge<T> &edge) {
