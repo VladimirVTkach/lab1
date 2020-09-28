@@ -7,15 +7,15 @@ Author::Author(const std::string &first_name,
         last_name_(last_name),
         date_of_birth_(date_of_birth) {}
 
-const std::string &Author::get_first_name() const {
+const std::string &Author::GetFirstName() const {
     return Author::first_name_;
 }
 
-const std::string &Author::get_last_name() const {
+const std::string &Author::GetLastName() const {
     return Author::last_name_;
 }
 
-const std::chrono::year_month_day &Author::get_date_of_birth() const {
+const std::chrono::year_month_day &Author::GetDateOfBirth() const {
     return Author::date_of_birth_;
 }
 

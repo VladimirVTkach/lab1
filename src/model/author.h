@@ -9,11 +9,11 @@ public:
            const std::string &last_name,
            const std::chrono::year_month_day &date_of_birth);
 
-    const std::string &get_first_name() const;
+    const std::string &GetFirstName() const;
 
-    const std::string &get_last_name() const;
+    const std::string &GetLastName() const;
 
-    const std::chrono::year_month_day &get_date_of_birth() const;
+    const std::chrono::year_month_day &GetDateOfBirth() const;
 
     bool operator==(const Author &rhs) const;
 
