@@ -5,12 +5,65 @@
 template<typename T>
 struct Vertex {
     T data;
+
+    bool operator==(const Vertex &rhs) const {
+        return data == rhs.data;
+    }
+
+    bool operator!=(const Vertex &rhs) const {
+        return !(rhs == *this);
+    }
+
+    bool operator<(const Vertex &rhs) const {
+        return data < rhs.data;
+    }
+
+    bool operator>(const Vertex &rhs) const {
+        return rhs < *this;
+    }
+
+    bool operator<=(const Vertex &rhs) const {
+        return !(rhs < *this);
+    }
+
+    bool operator>=(const Vertex &rhs) const {
+        return !(*this < rhs);
+    }
 };
 
 template<typename T>
 struct Edge {
     Vertex<T> lhs;
     Vertex<T> rhs;
+
+    bool operator==(const Edge &rhs) const {
+        return lhs == rhs.lhs &&
+               rhs == rhs.rhs;
+    }
+
+    bool operator!=(const Edge &rhs) const {
+        return !(rhs == *this);
+    }
+
+    bool operator<(const Edge &rhs) const {
+        if (lhs < rhs.lhs)
+            return true;
+        if (rhs.lhs < lhs)
+            return false;
+        return rhs < rhs.rhs;
+    }
+
+    bool operator>(const Edge &rhs) const {
+        return rhs < *this;
+    }
+
+    bool operator<=(const Edge &rhs) const {
+        return !(rhs < *this);
+    }
+
+    bool operator>=(const Edge &rhs) const {
+        return !(*this < rhs);
+    }
 };
 
 template<typename T>
