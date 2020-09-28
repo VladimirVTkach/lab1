@@ -15,16 +15,22 @@ public:
         const Vertex<T> &lhs = edge.lhs;
         const Vertex<T> &rhs = edge.rhs;
 
-        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
-        auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
+        const auto &found_lhs_vertex_it = adjacency_lists_.find(lhs);
+        std::set<Edge<T>> lhs_adjacency_edges();
+        if(found_lhs_vertex_it != adjacency_lists_.end()) {
+            lhs_adjacency_edges = *found_lhs_vertex_it->second;
+        }
 
-        lhs_adjacent_edges.insert(edge);
-        rhs_adjacent_edges.insert(edge);
-
-        adjacency_lists_.insert_or_assign(lhs, lhs_adjacent_edges);
-        adjacency_lists_.insert_or_assign(rhs, rhs_adjacent_edges);
-
-        ++edges_count_;
+//        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
+//        auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
+//
+//        lhs_adjacent_edges.insert(edge);
+//        rhs_adjacent_edges.insert(edge);
+//
+//        adjacency_lists_.insert_or_assign(lhs, lhs_adjacent_edges);
+//        adjacency_lists_.insert_or_assign(rhs, rhs_adjacent_edges);
+//
+//        ++edges_count_;
     }
 
     void RemoveVertex(const Vertex<T> &vertex) override {
@@ -43,7 +49,7 @@ public:
         return 0;
     }
 
-    std::set<Edge<T>> GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) override {
+    std::set<Edge<T>> &GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) override {
         const auto &found_vertex_it = FindVertexIt(vertex);
         if (found_vertex_it == adjacency_lists_.end()) {
             return std::set<Edge<T>>();
