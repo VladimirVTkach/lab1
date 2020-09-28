@@ -8,15 +8,15 @@ template<typename T>
 class AdjacentUndirectedGraph : public UndirectedGraph<T> {
 public:
     void AddVertex(const Vertex<T> &vertex) override {
-        adjacency_lists_.try_emplace(vertex, std::vector<Edge<T>>());
+        adjacency_lists_.try_emplace(vertex, std::set<Edge<T>>());
     }
 
     void AddEdge(const Edge<T> &edge) override {
         Vertex<T> &lhs = edge.lhs;
         Vertex<T> &rhs = edge.rhs;
 
-        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptyList(lhs);
-        auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptyList(lhs);
+        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
+        auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
 
         lhs_adjacent_edges.insert(edge);
         rhs_adjacent_edges.insert(edge);
@@ -43,7 +43,7 @@ public:
         return 0;
     }
 
-    std::set<Edge<Vertex<T>>> GetAdjacentEdgesOrEmptySet(Vertex<T> &vertex) override {
+    std::set<Edge<Vertex<T>>> GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) override {
         const auto &found_vertex_it = FindVertexIt(vertex);
         if (found_vertex_it == adjacency_lists_.end()) {
             return std::set<Edge<Vertex<T>>>();
@@ -65,7 +65,7 @@ public:
     }
 
 private:
-    const auto &FindVertexIt(Vertex<T> &vertex) {
+    const auto &FindVertexIt(const Vertex<T> &vertex) {
         const auto &found_vertex_it = adjacency_lists_.find(vertex);
         return found_vertex_it;
     }
