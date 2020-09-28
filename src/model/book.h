@@ -35,10 +35,10 @@ public:
     bool operator!=(const Book &rhs) const;
 
 private:
-    std::string name;
-    std::vector<Author> authors;
-    int pages;
-    std::chrono::year_month_day release_date;
-    std::string description;
-    std::map<CharacterRole, std::vector<Character>> characters;
+    std::string name_;
+    std::vector<Author> authors_;
+    int pages_;
+    std::chrono::year_month_day release_date_;
+    std::string description_;
+    std::map<CharacterRole, std::vector<Character>> characters_;
 };

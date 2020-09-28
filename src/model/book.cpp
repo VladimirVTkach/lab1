@@ -6,44 +6,44 @@ Book::Book(const std::string &name,
            const std::chrono::year_month_day &release_date,
            const std::string &description,
            const std::map<CharacterRole, std::vector<Character>> &characters) :
-        name(name),
-        authors(authors),
-        pages(pages),
-        release_date(release_date),
-        description(description),
-        characters(characters) {}
+        name_(name),
+        authors_(authors),
+        pages_(pages),
+        release_date_(release_date),
+        description_(description),
+        characters_(characters) {}
 
 const std::string &Book::get_name() const {
-    return name;
+    return name_;
 }
 
 const std::vector<Author> &Book::get_authors() const {
-    return authors;
+    return authors_;
 }
 
 int Book::get_pages() const {
-    return pages;
+    return pages_;
 }
 
 const std::chrono::year_month_day &Book::get_release_date() const {
-    return release_date;
+    return release_date_;
 }
 
 const std::string &Book::get_description() const {
-    return description;
+    return description_;
 }
 
 const std::map<CharacterRole, std::vector<Character>> &Book::get_characters() const {
-    return characters;
+    return characters_;
 }
 
 bool Book::operator==(const Book &rhs) const {
-    return name == rhs.name &&
-           authors == rhs.authors &&
-           pages == rhs.pages &&
-           release_date == rhs.release_date &&
-           description == rhs.description &&
-           characters == rhs.characters;
+    return name_ == rhs.name_ &&
+           authors_ == rhs.authors_ &&
+           pages_ == rhs.pages_ &&
+           release_date_ == rhs.release_date_ &&
+           description_ == rhs.description_ &&
+           characters_ == rhs.characters_;
 }
 
 bool Book::operator!=(const Book &rhs) const {
