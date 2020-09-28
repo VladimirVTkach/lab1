@@ -20,7 +20,7 @@ public:
     bool operator!=(const Author &rhs) const;
 
 private:
-    std::string first_name;
-    std::string last_name;
-    std::chrono::year_month_day date_of_birth;
+    std::string first_name_;
+    std::string last_name_;
+    std::chrono::year_month_day date_of_birth_;
 };
