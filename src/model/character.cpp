@@ -4,11 +4,11 @@ Character::Character(const std::string &name, const std::string &biography) :
     name_(name),
     biography_(biography) {}
 
-const std::string &Character::get_name() const {
+const std::string &Character::GetName() const {
     return Character::name_;
 }
 
-const std::string &Character::get_biography() const {
+const std::string &Character::GetBiography() const {
     return Character::biography_;
 }
 
