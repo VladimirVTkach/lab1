@@ -12,8 +12,8 @@ public:
     }
 
     void AddEdge(const Edge<T> &edge) override {
-        Vertex<T> &lhs = edge.lhs;
-        Vertex<T> &rhs = edge.rhs;
+        const Vertex<T> &lhs = edge.lhs;
+        const Vertex<T> &rhs = edge.rhs;
 
         auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
         auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
