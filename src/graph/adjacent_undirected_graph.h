@@ -49,7 +49,12 @@ public:
     }
 
     size_t GetAdjacentEdgesCount(const Vertex<T> &vertex) override {
-        return 0;
+        auto vertex_iterator = adjacency_lists_.find(vertex);
+        if (vertex_iterator == adjacency_lists_.end()) {
+            throw std::runtime_error("vertex doesn't exist");
+        } else {
+            return (vertex_iterator->second).size();
+        }
     }
 
     const std::map<Vertex<T>, std::set<Edge<T>>> &GetAdjacencyLists() const {
