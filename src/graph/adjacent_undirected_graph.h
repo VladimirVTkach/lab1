@@ -43,7 +43,7 @@ public:
         return 0;
     }
 
-    std::set<Edge<Vertex<T>>> GetAdjacentEdgesOrEmptySet(Vertex<T> &vertex) override {
+    std::set<Edge<T>> GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) override {
         const auto &found_vertex_it = FindVertexIt(vertex);
         if (found_vertex_it == adjacency_lists_.end()) {
             return std::set<Edge<Vertex<T>>>();
