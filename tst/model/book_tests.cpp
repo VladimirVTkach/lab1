@@ -10,7 +10,7 @@ TEST(book_tests, test_get_name) {
               std::chrono::year_month_day(),
               "",
               std::map<CharacterRole, std::vector<Character>>());
-    ASSERT_EQ(name, book.get_name());
+    ASSERT_EQ(name, book.GetName());
 }
 
 TEST(book_tests, test_get_authors) {
@@ -26,7 +26,7 @@ TEST(book_tests, test_get_authors) {
               std::chrono::year_month_day(),
               "",
               std::map<CharacterRole, std::vector<Character>>());
-    ASSERT_EQ(authors, book.get_authors());
+    ASSERT_EQ(authors, book.GetAuthors());
 }
 
 TEST(book_tests, test_get_pages) {
@@ -37,7 +37,7 @@ TEST(book_tests, test_get_pages) {
               std::chrono::year_month_day(),
               "",
               std::map<CharacterRole, std::vector<Character>>());
-    ASSERT_EQ(pages, book.get_pages());
+    ASSERT_EQ(pages, book.GetPages());
 }
 
 TEST(book_tests, test_get_release_date) {
@@ -51,7 +51,7 @@ TEST(book_tests, test_get_release_date) {
               release_date,
               "",
               std::map<CharacterRole, std::vector<Character>>());
-    ASSERT_EQ(release_date, book.get_release_date());
+    ASSERT_EQ(release_date, book.GetReleaseDate());
 }
 
 TEST(book_tests, test_get_description) {
@@ -62,7 +62,7 @@ TEST(book_tests, test_get_description) {
               std::chrono::year_month_day(),
               description,
               std::map<CharacterRole, std::vector<Character>>());
-    ASSERT_EQ(description, book.get_description());
+    ASSERT_EQ(description, book.GetDescription());
 }
 
 TEST(book_tests, test_get_characters) {
@@ -76,5 +76,5 @@ TEST(book_tests, test_get_characters) {
               std::chrono::year_month_day(),
               "",
               characters);
-    ASSERT_EQ(characters, book.get_characters());
+    ASSERT_EQ(characters, book.GetCharacters());
 }
