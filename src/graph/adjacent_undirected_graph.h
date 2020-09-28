@@ -15,13 +15,7 @@ public:
         const Vertex<T> &lhs = edge.lhs;
         const Vertex<T> &rhs = edge.rhs;
 
-        const auto &found_lhs_vertex_it = adjacency_lists_.find(lhs);
-        std::set<Edge<T>> lhs_adjacency_edges();
-        if(found_lhs_vertex_it != adjacency_lists_.end()) {
-            lhs_adjacency_edges = *found_lhs_vertex_it->second;
-        }
-
-//        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
+        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
 //        auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
 //
 //        lhs_adjacent_edges.insert(edge);
@@ -47,15 +41,6 @@ public:
 
     int GetDistance(const Vertex<T> &src, const Vertex<T> &dst) override {
         return 0;
-    }
-
-    std::set<Edge<T>> &GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) override {
-        const auto &found_vertex_it = FindVertexIt(vertex);
-        if (found_vertex_it == adjacency_lists_.end()) {
-            return std::set<Edge<T>>();
-        } else {
-            return found_vertex_it->second;
-        }
     }
 
     size_t GetVerticesCount() override {
