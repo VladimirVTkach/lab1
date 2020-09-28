@@ -23,11 +23,10 @@ public:
             throw std::runtime_error("one or more vertices doesn't exist");
         }
 
-        Edge<T> left_edge_repr = GetEdgeRepr(left_vertex_repr, right_vertex_repr);
-        Edge<T> right_edge_repr = GetEdgeRepr(right_vertex_repr, left_vertex_repr);
+        Edge<T> edge_repr = GetEdgeRepr(left_vertex_repr, right_vertex_repr);
 
-        InsertEdge(left_vertex_repr, left_edge_repr);
-        InsertEdge(right_vertex_repr, right_edge_repr);
+        InsertEdge(left_vertex_repr, edge_repr);
+        InsertEdge(right_vertex_repr, edge_repr);
         ++edges_count_;
     }
 
@@ -45,11 +44,10 @@ public:
             throw std::runtime_error("one or more vertices doesn't exist");
         }
 
-        Edge<T> left_edge_repr = GetEdgeRepr(left_vertex_repr, right_vertex_repr);
-        Edge<T> right_edge_repr = GetEdgeRepr(right_vertex_repr, left_vertex_repr);
+        Edge<T> edge_repr = GetEdgeRepr(left_vertex_repr, right_vertex_repr);
 
-        DeleteEdge(left_vertex_repr, left_edge_repr);
-        DeleteEdge(right_vertex_repr, right_edge_repr);
+        DeleteEdge(left_vertex_repr, edge_repr);
+        DeleteEdge(right_vertex_repr, edge_repr);
         --edges_count_;
     }
 
