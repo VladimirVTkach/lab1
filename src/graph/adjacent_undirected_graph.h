@@ -29,7 +29,16 @@ public:
     }
 
     void RemoveEdge(const Edge<T> &edge) override {
+        const Vertex<T> &left = edge.left;
+        const Vertex<T> &right = edge.right;
 
+        if (!adjacency_lists_.contains(left) || !adjacency_lists_.contains(right)) {
+            throw std::runtime_error("one or more vertices doesn't exist");
+        }
+
+        DeleteEdge(left, edge);
+        DeleteEdge(right, edge);
+        --edges_count_;
     }
 
     bool IsLinked() override {
@@ -67,6 +76,13 @@ private:
         auto vertex_iterator = adjacency_lists_.find(vertex);
         std::set<Edge<T>> &vertex_edges = vertex_iterator->second;
         vertex_edges.insert(edge);
+        adjacency_lists_[vertex] = vertex_edges;
+    }
+
+    void DeleteEdge(const Vertex<T> &vertex, const Edge<T> &edge) {
+        auto vertex_iterator = adjacency_lists_.find(vertex);
+        std::set<Edge<T>> &vertex_edges = vertex_iterator->second;
+        vertex_edges.erase(edge);
         adjacency_lists_[vertex] = vertex_edges;
     }
 
