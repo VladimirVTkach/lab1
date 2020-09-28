@@ -18,17 +18,17 @@ public:
          const std::string &description,
          const std::map<CharacterRole, std::vector<Character>> &characters);
 
-    const std::string &get_name() const;
+    const std::string &GetName() const;
 
-    const std::vector<Author> &get_authors() const;
+    const std::vector<Author> &GetAuthors() const;
 
-    int get_pages() const;
+    int GetPages() const;
 
-    const std::chrono::year_month_day &get_release_date() const;
+    const std::chrono::year_month_day &GetReleaseDate() const;
 
-    const std::string &get_description() const;
+    const std::string &GetDescription() const;
 
-    const std::map<CharacterRole, std::vector<Character>> &get_characters() const;
+    const std::map<CharacterRole, std::vector<Character>> &GetCharacters() const;
 
     bool operator==(const Book &rhs) const;
 

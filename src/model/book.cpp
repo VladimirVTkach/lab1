@@ -13,27 +13,27 @@ Book::Book(const std::string &name,
         description_(description),
         characters_(characters) {}
 
-const std::string &Book::get_name() const {
+const std::string &Book::GetName() const {
     return name_;
 }
 
-const std::vector<Author> &Book::get_authors() const {
+const std::vector<Author> &Book::GetAuthors() const {
     return authors_;
 }
 
-int Book::get_pages() const {
+int Book::GetPages() const {
     return pages_;
 }
 
-const std::chrono::year_month_day &Book::get_release_date() const {
+const std::chrono::year_month_day &Book::GetReleaseDate() const {
     return release_date_;
 }
 
-const std::string &Book::get_description() const {
+const std::string &Book::GetDescription() const {
     return description_;
 }
 
-const std::map<CharacterRole, std::vector<Character>> &Book::get_characters() const {
+const std::map<CharacterRole, std::vector<Character>> &Book::GetCharacters() const {
     return characters_;
 }
 
