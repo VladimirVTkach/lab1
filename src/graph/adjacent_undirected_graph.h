@@ -12,19 +12,16 @@ public:
     }
 
     void AddEdge(const Edge<T> &edge) override {
-        const Vertex<T> &lhs = edge.lhs;
-        const Vertex<T> &rhs = edge.rhs;
+        const Vertex<T> &left = edge.left;
+        const Vertex<T> &right = edge.right;
 
-        auto lhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
-//        auto rhs_adjacent_edges = GetAdjacentEdgesOrEmptySet(lhs);
-//
-//        lhs_adjacent_edges.insert(edge);
-//        rhs_adjacent_edges.insert(edge);
-//
-//        adjacency_lists_.insert_or_assign(lhs, lhs_adjacent_edges);
-//        adjacency_lists_.insert_or_assign(rhs, rhs_adjacent_edges);
-//
-//        ++edges_count_;
+        if (!adjacency_lists_.contains(left) || !adjacency_lists_.contains(right)) {
+            throw std::runtime_error("one or more vertices doesn't exist");
+        }
+
+        InsertEdge(left, edge);
+        InsertEdge(right, edge);
+        ++edges_count_;
     }
 
     void RemoveVertex(const Vertex<T> &vertex) override {
@@ -61,6 +58,13 @@ public:
 
 
 private:
+    void InsertEdge(const Vertex<T> &vertex, const Edge<T> &edge) {
+        auto vertex_iterator = adjacency_lists_.find(vertex);
+        std::set<Edge<T>> &vertex_edges = vertex_iterator->second;
+        vertex_edges.insert(edge);
+        adjacency_lists_[vertex] = vertex_edges;
+    }
+
     std::map<Vertex<T>, std::set<Edge<T>>> adjacency_lists_;
     size_t edges_count_;
 };
