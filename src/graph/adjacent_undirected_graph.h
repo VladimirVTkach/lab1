@@ -43,7 +43,7 @@ public:
         return 0;
     }
 
-    std::set<Edge<Vertex<T>>> GetAdjacentEdgesOrEmptySet(const Vertex<T> &vertex) override {
+    std::set<Edge<Vertex<T>>> GetAdjacentEdgesOrEmptySet(Vertex<T> &vertex) override {
         const auto &found_vertex_it = FindVertexIt(vertex);
         if (found_vertex_it == adjacency_lists_.end()) {
             return std::set<Edge<Vertex<T>>>();
@@ -63,6 +63,11 @@ public:
     size_t GetAdjacentEdgesCount(Vertex<T> vertex) override {
         return 0;
     }
+
+    const std::map<Vertex<T>, std::set<Edge<T>>> &GetAdjacencyLists() const {
+        return adjacency_lists_;
+    }
+
 
 private:
     const auto &FindVertexIt(const Vertex<T> &vertex) {
