@@ -8,7 +8,8 @@ template<typename T>
 class AdjacentUndirectedGraph : public UndirectedGraph<T> {
 public:
     void AddVertex(const Vertex<T> &vertex) override {
-        adjacency_lists_.try_emplace(vertex, std::vector<Edge<T>>());
+        const auto &found_key_it = adjacency_lists_.find(vertex);
+        adjacency_lists_.erase(found_key_it);
     }
 
     void AddEdge(const Edge<T> &edge) override {
