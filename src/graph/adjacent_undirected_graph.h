@@ -45,6 +45,11 @@ public:
     }
 
 private:
+    const auto &FindVertexIt(Vertex<T> &vertex) {
+        const auto &found_vertex_it = adjacency_lists_.find(vertex);
+        return found_vertex_it;
+    }
+
     std::map<Vertex<T>, std::vector<Edge<T>>> adjacency_lists_;
 };
 
