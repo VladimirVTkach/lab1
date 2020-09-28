@@ -48,7 +48,7 @@ public:
         return edges_count_;
     }
 
-    size_t GetAdjacentEdgesCount(Vertex<T> vertex) override {
+    size_t GetAdjacentEdgesCount(const Vertex<T> &vertex) override {
         return 0;
     }
 
