@@ -127,7 +127,7 @@ TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_not_linked
     ASSERT_FALSE(adjacent_undirected_graph.IsLinked());
 }
 
-TEST(adjacent_undirected_graph_test, test_int_get_distance) {
+TEST(adjacent_undirected_graph_test, test_int_get_distance_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -143,6 +143,26 @@ TEST(adjacent_undirected_graph_test, test_int_get_distance) {
     adjacent_undirected_graph.AddEdge(vertex3, vertex1);
 
     ASSERT_EQ(1, adjacent_undirected_graph.GetDistance(vertex1, vertex3));
+}
+
+TEST(adjacent_undirected_graph_test, test_int_get_distance_when_one_vertex_absent) {
+    AdjacentUndirectedGraph<int> adjacent_undirected_graph;
+
+    int vertex1{1};
+    int vertex2{2};
+    int vertex3{3};
+
+    adjacent_undirected_graph.AddVertex(vertex1);
+    adjacent_undirected_graph.AddVertex(vertex2);
+    adjacent_undirected_graph.AddVertex(vertex3);
+
+    adjacent_undirected_graph.AddEdge(vertex1, vertex2);
+    adjacent_undirected_graph.AddEdge(vertex2, vertex3);
+    adjacent_undirected_graph.AddEdge(vertex3, vertex1);
+
+    adjacent_undirected_graph.RemoveVertex(vertex3);
+
+    ASSERT_THROW(adjacent_undirected_graph.GetDistance(vertex1, vertex3), std::runtime_error);
 }
 
 TEST(adjacent_undirected_graph_test, test_int_get_vertices_count) {
