@@ -5,6 +5,8 @@
 
 class Author {
 public:
+    Author();
+
     Author(const std::string &first_name,
            const std::string &last_name,
            const std::chrono::year_month_day &date_of_birth);
