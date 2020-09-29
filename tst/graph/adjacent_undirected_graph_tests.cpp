@@ -11,7 +11,7 @@ TEST(adjacent_undirected_graph_test, test_add_int_vertex) {
     ASSERT_TRUE(adjacency_lists.contains(Vertex<int>{vertex1}));
 }
 
-TEST(adjacent_undirected_graph_test, test_add_int_edge) {
+TEST(adjacent_undirected_graph_test, test_add_int_edge_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -31,6 +31,16 @@ TEST(adjacent_undirected_graph_test, test_add_int_edge) {
 
     ASSERT_TRUE(adjacent_vertex1_edges.contains(Edge<int>{vertex1, vertex2}));
     ASSERT_TRUE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
+}
+
+TEST(adjacent_undirected_graph_test, test_add_int_edge_when_one_vertex_absent) {
+    AdjacentUndirectedGraph<int> adjacent_undirected_graph;
+
+    int vertex1{1};
+    int vertex2{2};
+    adjacent_undirected_graph.AddVertex(vertex1);
+
+    ASSERT_THROW(adjacent_undirected_graph.AddEdge(vertex1, vertex2), std::runtime_error);
 }
 
 TEST(adjacent_undirected_graph_test, test_remove_int_vertex) {
