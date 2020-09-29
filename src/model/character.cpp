@@ -1,8 +1,12 @@
 #include "character.h"
 
+Character::Character() :
+        name_(""),
+        biography_("") {}
+
 Character::Character(const std::string &name, const std::string &biography) :
-    name_(name),
-    biography_(biography) {}
+        name_(name),
+        biography_(biography) {}
 
 const std::string &Character::GetName() const {
     return Character::name_;

@@ -2,6 +2,8 @@
 
 class Character {
 public:
+    Character();
+
     Character(const std::string &name,
               const std::string &biography);
 
