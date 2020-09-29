@@ -11,6 +11,8 @@ enum CharacterRole {
 
 class Book {
 public:
+    Book();
+
     Book(const std::string &name,
          const std::vector<Author> &authors,
          int pages,

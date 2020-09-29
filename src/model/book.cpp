@@ -1,5 +1,13 @@
 #include "book.h"
 
+Book::Book() :
+        name_(""),
+        authors_(std::vector<Author>()),
+        pages_(0),
+        release_date_(std::chrono::year_month_day()),
+        description_(""),
+        characters_(std::map<CharacterRole, std::vector<Character>>()) {}
+
 Book::Book(const std::string &name,
            const std::vector<Author> &authors,
            int pages,
