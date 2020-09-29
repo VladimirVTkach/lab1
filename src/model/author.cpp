@@ -28,3 +28,27 @@ bool Author::operator==(const Author &rhs) const {
 bool Author::operator!=(const Author &rhs) const {
     return !(rhs == *this);
 }
+
+bool Author::operator<(const Author &rhs) const {
+    if (first_name_ < rhs.first_name_)
+        return true;
+    if (rhs.first_name_ < first_name_)
+        return false;
+    if (last_name_ < rhs.last_name_)
+        return true;
+    if (rhs.last_name_ < last_name_)
+        return false;
+    return date_of_birth_ < rhs.date_of_birth_;
+}
+
+bool Author::operator>(const Author &rhs) const {
+    return rhs < *this;
+}
+
+bool Author::operator<=(const Author &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Author::operator>=(const Author &rhs) const {
+    return !(*this < rhs);
+}

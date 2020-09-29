@@ -19,6 +19,14 @@ public:
 
     bool operator!=(const Author &rhs) const;
 
+    bool operator<(const Author &rhs) const;
+
+    bool operator>(const Author &rhs) const;
+
+    bool operator<=(const Author &rhs) const;
+
+    bool operator>=(const Author &rhs) const;
+
 private:
     std::string first_name_;
     std::string last_name_;
