@@ -7,7 +7,8 @@ template<typename T>
 class MatrixUndirectedGraph : public UndirectedGraph<T> {
 public:
     void AddVertex(const T &vertex) override {
-
+        Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
+        adjacency_matrix_.try_emplace(vertex_repr, std::map<Vertex<T>, Edge<T>>());
     }
 
     void AddEdge(const T &left, T &right) override {
