@@ -13,6 +13,14 @@ public:
 
     bool operator!=(const Character &rhs) const;
 
+    bool operator<(const Character &rhs) const;
+
+    bool operator>(const Character &rhs) const;
+
+    bool operator<=(const Character &rhs) const;
+
+    bool operator>=(const Character &rhs) const;
+
 private:
     std::string name_;
     std::string biography_;

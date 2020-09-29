@@ -20,3 +20,23 @@ bool Character::operator==(const Character &rhs) const {
 bool Character::operator!=(const Character &rhs) const {
     return !(rhs == *this);
 }
+
+bool Character::operator<(const Character &rhs) const {
+    if (name_ < rhs.name_)
+        return true;
+    if (rhs.name_ < name_)
+        return false;
+    return biography_ < rhs.biography_;
+}
+
+bool Character::operator>(const Character &rhs) const {
+    return rhs < *this;
+}
+
+bool Character::operator<=(const Character &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Character::operator>=(const Character &rhs) const {
+    return !(*this < rhs);
+}
