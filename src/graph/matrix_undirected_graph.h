@@ -31,7 +31,7 @@ public:
     }
 
     size_t GetVerticesCount() override {
-        return 0;
+        return adjacency_matrix_.size();
     }
 
     size_t GetEdgesCount() override {
