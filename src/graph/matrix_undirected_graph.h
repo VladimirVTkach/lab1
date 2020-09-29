@@ -16,7 +16,8 @@ public:
     }
 
     void RemoveVertex(const T &vertex) override {
-
+        Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
+        adjacency_matrix_.erase(vertex_repr);
     }
 
     void RemoveEdge(const T &left, T &right) override {
