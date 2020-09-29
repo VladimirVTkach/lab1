@@ -74,6 +74,10 @@ public:
         return adjacency_matrix_[vertex].size();
     }
 
+    const std::map<Vertex<T>, std::map<Vertex<T>, Edge<T>>> &GetAdjacencyMatrix() {
+        return adjacency_matrix_;
+    }
+
 private:
     std::map<Vertex<T>, std::map<Vertex<T>, Edge<T>>> adjacency_matrix_;
     size_t edges_count_ = 0;
