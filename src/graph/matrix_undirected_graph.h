@@ -39,7 +39,7 @@ public:
     }
 
     size_t GetAdjacentEdgesCount(const T &vertex) override {
-        return 0;
+        return adjacency_matrix_[vertex].size();
     }
 
 private:
