@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <map>
 #include "undirected_graph.h"
 
 template<typename T>
@@ -43,5 +43,5 @@ public:
     }
 
 private:
-    std::vector<std::vector<Vertex<T>>> adjacency_matrix_;
+    std::map<Vertex<T>, std::map<Vertex<T>, Edge<T>>> adjacency_matrix_;
 };
