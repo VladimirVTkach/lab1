@@ -86,4 +86,13 @@ public:
     virtual size_t GetEdgesCount() = 0;
 
     virtual size_t GetAdjacentEdgesCount(const T &vertex) = 0;
+
+protected:
+    Vertex<T> GetVertexRepr(const T &vertex) {
+        return Vertex<T>{vertex};
+    }
+
+    Edge<T> GetEdgeRepr(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
+        return Edge<T>{left_vertex_repr, right_vertex_repr};
+    }
 };
