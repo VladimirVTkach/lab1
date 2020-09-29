@@ -49,3 +49,39 @@ bool Book::operator==(const Book &rhs) const {
 bool Book::operator!=(const Book &rhs) const {
     return !(rhs == *this);
 }
+
+bool Book::operator<(const Book &rhs) const {
+    if (name_ < rhs.name_)
+        return true;
+    if (rhs.name_ < name_)
+        return false;
+    if (authors_ < rhs.authors_)
+        return true;
+    if (rhs.authors_ < authors_)
+        return false;
+    if (pages_ < rhs.pages_)
+        return true;
+    if (rhs.pages_ < pages_)
+        return false;
+    if (release_date_ < rhs.release_date_)
+        return true;
+    if (rhs.release_date_ < release_date_)
+        return false;
+    if (description_ < rhs.description_)
+        return true;
+    if (rhs.description_ < description_)
+        return false;
+    return characters_ < rhs.characters_;
+}
+
+bool Book::operator>(const Book &rhs) const {
+    return rhs < *this;
+}
+
+bool Book::operator<=(const Book &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Book::operator>=(const Book &rhs) const {
+    return !(*this < rhs);
+}

@@ -34,6 +34,14 @@ public:
 
     bool operator!=(const Book &rhs) const;
 
+    bool operator<(const Book &rhs) const;
+
+    bool operator>(const Book &rhs) const;
+
+    bool operator<=(const Book &rhs) const;
+
+    bool operator>=(const Book &rhs) const;
+
 private:
     std::string name_;
     std::vector<Author> authors_;
