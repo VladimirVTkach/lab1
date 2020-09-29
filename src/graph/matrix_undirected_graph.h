@@ -12,7 +12,17 @@ public:
     }
 
     void AddEdge(const T &left, T &right) override {
+        Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
+        Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
 
+        if (!adjacency_matrix_.contains(left_vertex_repr) ||
+            !adjacency_matrix_.contains(right_vertex_repr)) {
+            throw std::runtime_error("one or more vertices doesn't exist");
+        }
+
+        Edge<T> edge_repr = this->GetEdgeRepr(left_vertex_repr, right_vertex_repr);
+        std::map<Vertex<T>, Edge<T>> &adjacent_edges = adjacency_matrix_[left_vertex_repr];
+        adjacent_edges[right_vertex_repr] = edge_repr;
     }
 
     void RemoveVertex(const T &vertex) override {
