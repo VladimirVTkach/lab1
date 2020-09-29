@@ -23,6 +23,8 @@ public:
         Edge<T> edge_repr = this->GetEdgeRepr(left_vertex_repr, right_vertex_repr);
         std::map<Vertex<T>, Edge<T>> &adjacent_edges = adjacency_matrix_[left_vertex_repr];
         adjacent_edges[right_vertex_repr] = edge_repr;
+
+        ++edges_count_;
     }
 
     void RemoveVertex(const T &vertex) override {
@@ -56,4 +58,5 @@ public:
 
 private:
     std::map<Vertex<T>, std::map<Vertex<T>, Edge<T>>> adjacency_matrix_;
+    size_t edges_count_ = 0;
 };
