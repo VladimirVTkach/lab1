@@ -71,7 +71,8 @@ public:
     }
 
     size_t GetAdjacentEdgesCount(const T &vertex) override {
-        return adjacency_matrix_[vertex].size();
+        Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
+        return adjacency_matrix_[vertex_repr].size();
     }
 
     const std::map<Vertex<T>, std::map<Vertex<T>, Edge<T>>> &GetAdjacencyMatrix() {
