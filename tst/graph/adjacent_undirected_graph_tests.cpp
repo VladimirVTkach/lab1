@@ -55,7 +55,7 @@ TEST(adjacent_undirected_graph_test, test_remove_int_vertex) {
     ASSERT_FALSE(adjacency_lists.contains(Vertex<int>{vertex1}));
 }
 
-TEST(adjacent_undirected_graph_test, test_remove_int_edge) {
+TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -76,6 +76,21 @@ TEST(adjacent_undirected_graph_test, test_remove_int_edge) {
 
     ASSERT_FALSE(adjacent_vertex1_edges.contains(Edge<int>{vertex1, vertex2}));
     ASSERT_FALSE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
+}
+
+TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_one_vertex_absent) {
+    AdjacentUndirectedGraph<int> adjacent_undirected_graph;
+
+    int vertex1{1};
+    int vertex2{2};
+    adjacent_undirected_graph.AddVertex(vertex1);
+    adjacent_undirected_graph.AddVertex(vertex2);
+
+    adjacent_undirected_graph.AddEdge(vertex1, vertex2);
+
+    adjacent_undirected_graph.RemoveVertex(vertex1);
+
+    ASSERT_THROW(adjacent_undirected_graph.RemoveEdge(vertex1, vertex2), std::runtime_error);
 }
 
 TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_linked) {
