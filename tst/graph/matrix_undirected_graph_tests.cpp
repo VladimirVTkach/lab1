@@ -5,6 +5,7 @@ TEST(matrix_undirected_graph_int_test, test_add_vertex) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1 = 1;
+
     adjacent_undirected_graph.AddVertex(vertex1);
 
     const auto &adjacency_matrix = adjacent_undirected_graph.GetAdjacencyMatrix();
@@ -14,8 +15,9 @@ TEST(matrix_undirected_graph_int_test, test_add_vertex) {
 TEST(matrix_undirected_graph_int_test, test_add_edge_when_all_vertices_present) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
+    int vertex1 = 1;
+    int vertex2 = 2;
+
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
 
@@ -29,8 +31,9 @@ TEST(matrix_undirected_graph_int_test, test_add_edge_when_all_vertices_present) 
 TEST(matrix_undirected_graph_int_test, test_add_edge_when_one_vertex_absent) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
+    int vertex1 = 1;
+    int vertex2 = 2;
+
     adjacent_undirected_graph.AddVertex(vertex1);
 
     ASSERT_THROW(adjacent_undirected_graph.AddEdge(vertex1, vertex2), std::runtime_error);
@@ -39,7 +42,8 @@ TEST(matrix_undirected_graph_int_test, test_add_edge_when_one_vertex_absent) {
 TEST(matrix_undirected_graph_int_test, test_remove_vertex) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
+    int vertex1 = 1;
+
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.RemoveVertex(vertex1);
 
@@ -51,8 +55,8 @@ TEST(matrix_undirected_graph_int_test, test_remove_vertex) {
 TEST(matrix_undirected_graph_int_test, test_remove_vertex_for_all_adjacent_edges_removed_too) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
+    int vertex1 = 1;
+    int vertex2 = 2;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -69,8 +73,9 @@ TEST(matrix_undirected_graph_int_test, test_remove_vertex_for_all_adjacent_edges
 TEST(matrix_undirected_graph_int_test, test_remove_edge_when_all_vertices_present) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
+    int vertex1 = 1;
+    int vertex2 = 2;
+
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
 
@@ -85,8 +90,9 @@ TEST(matrix_undirected_graph_int_test, test_remove_edge_when_all_vertices_presen
 TEST(matrix_undirected_graph_int_test, test_remove_edge_when_one_vertex_absent) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
+    int vertex1 = 1;
+    int vertex2 = 2;
+
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
 
@@ -100,9 +106,9 @@ TEST(matrix_undirected_graph_int_test, test_remove_edge_when_one_vertex_absent) 
 TEST(matrix_undirected_graph_int_test, test_is_linked_when_graph_is_linked) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -118,9 +124,9 @@ TEST(matrix_undirected_graph_int_test, test_is_linked_when_graph_is_linked) {
 TEST(matrix_undirected_graph_int_test, test_is_linked_when_graph_is_not_linked) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -134,9 +140,9 @@ TEST(matrix_undirected_graph_int_test, test_is_linked_when_graph_is_not_linked) 
 TEST(matrix_undirected_graph_int_test, test_get_distance_when_all_vertices_present) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -152,9 +158,9 @@ TEST(matrix_undirected_graph_int_test, test_get_distance_when_all_vertices_prese
 TEST(matrix_undirected_graph_int_test, test_get_distance_when_one_vertex_absent) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -172,9 +178,9 @@ TEST(matrix_undirected_graph_int_test, test_get_distance_when_one_vertex_absent)
 TEST(matrix_undirected_graph_int_test, test_get_vertices_count) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -186,9 +192,9 @@ TEST(matrix_undirected_graph_int_test, test_get_vertices_count) {
 TEST(matrix_undirected_graph_int_test, test_get_edges_count) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -204,9 +210,9 @@ TEST(matrix_undirected_graph_int_test, test_get_edges_count) {
 TEST(matrix_undirected_graph_int_test, test_get_adjacent_edges_count) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
-    int vertex1{1};
-    int vertex2{2};
-    int vertex3{3};
+    int vertex1 = 1;
+    int vertex2 = 2;
+    int vertex3 = 3;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
