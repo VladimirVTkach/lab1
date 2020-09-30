@@ -54,7 +54,7 @@ public:
         left_adjacent_edges.erase(right_vertex_repr);
 
         std::map<Vertex<T>, Edge<T>> &right_adjacent_edges = adjacency_matrix_[right_vertex_repr];
-        left_adjacent_edges.erase(left_vertex_repr);
+        right_adjacent_edges.erase(left_vertex_repr);
 
         --edges_count_;
     }
