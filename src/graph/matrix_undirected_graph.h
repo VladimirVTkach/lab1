@@ -62,7 +62,7 @@ public:
     bool IsLinked() override {
         for (const auto &[k1, v1] : adjacency_matrix_) {
             for (const auto &[k2, v2]: adjacency_matrix_) {
-                if (!adjacency_matrix_[k1].contains(k2)) {
+                if (GetDistance(k1.data, k2.data) == -1) {
                     return false;
                 }
             }
