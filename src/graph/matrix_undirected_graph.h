@@ -21,8 +21,12 @@ public:
         }
 
         Edge<T> edge_repr = this->GetEdgeRepr(left_vertex_repr, right_vertex_repr);
-        std::map<Vertex<T>, Edge<T>> &adjacent_edges = adjacency_matrix_[left_vertex_repr];
-        adjacent_edges[right_vertex_repr] = edge_repr;
+
+        std::map<Vertex<T>, Edge<T>> &left_adjacent_edges = adjacency_matrix_[left_vertex_repr];
+        left_adjacent_edges[right_vertex_repr] = edge_repr;
+
+        std::map<Vertex<T>, Edge<T>> &right_adjacent_edges = adjacency_matrix_[left_vertex_repr];
+        right_adjacent_edges[right_vertex_repr] = edge_repr;
 
         ++edges_count_;
     }
