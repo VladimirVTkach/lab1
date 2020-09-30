@@ -25,8 +25,8 @@ public:
         std::map<Vertex<T>, Edge<T>> &left_adjacent_edges = adjacency_matrix_[left_vertex_repr];
         left_adjacent_edges[right_vertex_repr] = edge_repr;
 
-        std::map<Vertex<T>, Edge<T>> &right_adjacent_edges = adjacency_matrix_[left_vertex_repr];
-        right_adjacent_edges[right_vertex_repr] = edge_repr;
+        std::map<Vertex<T>, Edge<T>> &right_adjacent_edges = adjacency_matrix_[right_vertex_repr];
+        right_adjacent_edges[left_vertex_repr] = edge_repr;
 
         ++edges_count_;
     }
