@@ -48,6 +48,24 @@ TEST(matrix_undirected_graph_test, test_remove_int_vertex) {
     ASSERT_FALSE(adjacency_matrix.contains(Vertex<int>{vertex1}));
 }
 
+TEST(matrix_undirected_graph_test, test_remove_int_vertex_for_all_adjacent_edges_removed_too) {
+    MatrixUndirectedGraph<int> adjacent_undirected_graph;
+
+    int vertex1{1};
+    int vertex2{2};
+
+    adjacent_undirected_graph.AddVertex(vertex1);
+    adjacent_undirected_graph.AddVertex(vertex2);
+    adjacent_undirected_graph.AddEdge(vertex1, vertex2);
+
+    adjacent_undirected_graph.RemoveVertex(vertex1);
+
+    const auto &adjacency_matrix = adjacent_undirected_graph.GetAdjacencyMatrix();
+
+    ASSERT_FALSE(adjacency_matrix.contains(Vertex<int>{vertex1}));
+    ASSERT_FALSE(adjacency_matrix.at(Vertex<int>{vertex2}).contains(Vertex<int>{vertex1}));
+}
+
 TEST(matrix_undirected_graph_test, test_remove_int_edge_when_all_vertices_present) {
     MatrixUndirectedGraph<int> adjacent_undirected_graph;
 
