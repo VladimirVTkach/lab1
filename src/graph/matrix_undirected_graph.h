@@ -71,7 +71,38 @@ public:
     }
 
     int GetDistance(const T &left, const T &right) override {
-        return 0;
+        Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
+        Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
+
+        if (!adjacency_matrix_.contains(left_vertex_repr) ||
+            !adjacency_matrix_.contains(right_vertex_repr)) {
+            throw std::runtime_error("one or more vertices doesn't exist");
+        }
+
+        if(left_vertex_repr == right_vertex_repr) {
+            return 0;
+        }
+
+        std::set<Vertex<T>> visited = {left_vertex_repr};
+        std::vector<Vertex<T>> frontier = {left_vertex_repr};
+        size_t distance = 1;
+        while (!frontier.empty()) {
+            std::vector<Vertex<T>> next;
+            for (const Vertex<T> &vertex_repr: frontier) {
+                const std::map<Vertex<T>, Edge<T>> &adjacent_edges = adjacency_matrix_[vertex_repr];
+                for (const auto &[k, v] : adjacent_edges) {
+                    if (k == right_vertex_repr) {
+                        return distance;
+                    } else if (!visited.contains(k)) {
+                        visited.insert(k);
+                        next.push_back(k);
+                    }
+                }
+            }
+            distance++;
+            frontier = next;
+        }
+        return -1;
     }
 
     size_t GetVerticesCount() override {
