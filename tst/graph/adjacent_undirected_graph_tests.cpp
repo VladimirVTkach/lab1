@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "../../src/graph/adjacent_undirected_graph.h"
 
-TEST(adjacent_undirected_graph_test, test_add_int_vertex) {
+TEST(adjacent_undirected_graph_int_test, test_add_vertex) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1 = 1;
@@ -11,7 +11,7 @@ TEST(adjacent_undirected_graph_test, test_add_int_vertex) {
     ASSERT_TRUE(adjacency_lists.contains(Vertex<int>{vertex1}));
 }
 
-TEST(adjacent_undirected_graph_test, test_add_int_edge_when_all_vertices_present) {
+TEST(adjacent_undirected_graph_int_test, test_add_edge_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -33,7 +33,7 @@ TEST(adjacent_undirected_graph_test, test_add_int_edge_when_all_vertices_present
     ASSERT_TRUE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
 }
 
-TEST(adjacent_undirected_graph_test, test_add_int_edge_when_one_vertex_absent) {
+TEST(adjacent_undirected_graph_int_test, test_add_edge_when_one_vertex_absent) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -43,7 +43,7 @@ TEST(adjacent_undirected_graph_test, test_add_int_edge_when_one_vertex_absent) {
     ASSERT_THROW(adjacent_undirected_graph.AddEdge(vertex1, vertex2), std::runtime_error);
 }
 
-TEST(adjacent_undirected_graph_test, test_remove_int_vertex) {
+TEST(adjacent_undirected_graph_int_test, test_remove_vertex) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -55,7 +55,7 @@ TEST(adjacent_undirected_graph_test, test_remove_int_vertex) {
     ASSERT_FALSE(adjacency_lists.contains(Vertex<int>{vertex1}));
 }
 
-TEST(adjacent_undirected_graph_test, test_remove_int_vertex_for_all_adjacent_edges_removed_too) {
+TEST(adjacent_undirected_graph_int_test, test_remove_vertex_for_all_adjacent_edges_removed_too) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -76,7 +76,7 @@ TEST(adjacent_undirected_graph_test, test_remove_int_vertex_for_all_adjacent_edg
     ASSERT_FALSE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
 }
 
-TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_all_vertices_present) {
+TEST(adjacent_undirected_graph_int_test, test_remove_edge_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -99,7 +99,7 @@ TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_all_vertices_pres
     ASSERT_FALSE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
 }
 
-TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_one_vertex_absent) {
+TEST(adjacent_undirected_graph_int_test, test_remove_edge_when_one_vertex_absent) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -114,7 +114,7 @@ TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_one_vertex_absent
     ASSERT_THROW(adjacent_undirected_graph.RemoveEdge(vertex1, vertex2), std::runtime_error);
 }
 
-TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_linked) {
+TEST(adjacent_undirected_graph_int_test, test_is_linked_when_graph_is_linked) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -132,7 +132,7 @@ TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_linked) {
     ASSERT_TRUE(adjacent_undirected_graph.IsLinked());
 }
 
-TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_not_linked) {
+TEST(adjacent_undirected_graph_int_test, test_is_linked_when_graph_is_not_linked) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -148,7 +148,7 @@ TEST(adjacent_undirected_graph_test, test_int_is_linked_when_graph_is_not_linked
     ASSERT_FALSE(adjacent_undirected_graph.IsLinked());
 }
 
-TEST(adjacent_undirected_graph_test, test_int_get_distance_when_all_vertices_present) {
+TEST(adjacent_undirected_graph_int_test, test_get_distance_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -166,7 +166,7 @@ TEST(adjacent_undirected_graph_test, test_int_get_distance_when_all_vertices_pre
     ASSERT_EQ(1, adjacent_undirected_graph.GetDistance(vertex1, vertex3));
 }
 
-TEST(adjacent_undirected_graph_test, test_int_get_distance_when_one_vertex_absent) {
+TEST(adjacent_undirected_graph_int_test, test_get_distance_when_one_vertex_absent) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -186,7 +186,7 @@ TEST(adjacent_undirected_graph_test, test_int_get_distance_when_one_vertex_absen
     ASSERT_THROW(adjacent_undirected_graph.GetDistance(vertex1, vertex3), std::runtime_error);
 }
 
-TEST(adjacent_undirected_graph_test, test_int_get_vertices_count) {
+TEST(adjacent_undirected_graph_int_test, test_get_vertices_count) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -200,7 +200,7 @@ TEST(adjacent_undirected_graph_test, test_int_get_vertices_count) {
     ASSERT_EQ(3, adjacent_undirected_graph.GetVerticesCount());
 }
 
-TEST(adjacent_undirected_graph_test, test_int_get_edges_count) {
+TEST(adjacent_undirected_graph_int_test, test_get_edges_count) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
@@ -218,7 +218,7 @@ TEST(adjacent_undirected_graph_test, test_int_get_edges_count) {
     ASSERT_EQ(3, adjacent_undirected_graph.GetEdgesCount());
 }
 
-TEST(adjacent_undirected_graph_test, test_int_get_adjacent_edges_count) {
+TEST(adjacent_undirected_graph_int_test, test_get_adjacent_edges_count) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1{1};
