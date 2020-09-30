@@ -62,6 +62,8 @@ TEST(matrix_undirected_graph_test, test_remove_int_edge_when_all_vertices_presen
     const auto &adjacency_matrix = adjacent_undirected_graph.GetAdjacencyMatrix();
     ASSERT_FALSE(adjacency_matrix.contains(Vertex<int>{vertex1}));
     ASSERT_FALSE(adjacency_matrix.at(Vertex<int>{vertex1}).contains(Vertex<int>{vertex2}));
+    ASSERT_FALSE(adjacency_matrix.contains(Vertex<int>{vertex2}));
+    ASSERT_FALSE(adjacency_matrix.at(Vertex<int>{vertex2}).contains(Vertex<int>{vertex1}));
 }
 
 TEST(matrix_undirected_graph_test, test_remove_int_edge_when_one_vertex_absent) {
