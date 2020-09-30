@@ -50,8 +50,11 @@ public:
             throw std::runtime_error("one or more vertices doesn't exist");
         }
 
-        std::map<Vertex<T>, Edge<T>> &adjacent_edges = adjacency_matrix_[left_vertex_repr];
-        adjacent_edges.erase(right_vertex_repr);
+        std::map<Vertex<T>, Edge<T>> &left_adjacent_edges = adjacency_matrix_[left_vertex_repr];
+        left_adjacent_edges.erase(right_vertex_repr);
+
+        std::map<Vertex<T>, Edge<T>> &right_adjacent_edges = adjacency_matrix_[right_vertex_repr];
+        left_adjacent_edges.erase(left_vertex_repr);
 
         --edges_count_;
     }
