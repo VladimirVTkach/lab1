@@ -59,7 +59,7 @@ TEST(adjacent_undirected_graph_int_test, test_remove_vertex_for_all_adjacent_edg
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
     int vertex1 = 1;
-    int vertex2 = 1;
+    int vertex2 = 2;
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -81,6 +81,7 @@ TEST(adjacent_undirected_graph_int_test, test_remove_edge_when_all_vertices_pres
 
     int vertex1 = 1;
     int vertex2 = 2;
+
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
 
@@ -104,6 +105,7 @@ TEST(adjacent_undirected_graph_int_test, test_remove_edge_when_one_vertex_absent
 
     int vertex1 = 1;
     int vertex2 = 2;
+
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
 
