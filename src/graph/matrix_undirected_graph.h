@@ -34,6 +34,11 @@ public:
     void RemoveVertex(const T &vertex) override {
         Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
         adjacency_matrix_.erase(vertex_repr);
+
+        for (const auto &[k, v] : adjacency_matrix_) {
+            std::map<Vertex<T>, Edge<T>> &adjacent_edges = adjacency_matrix_[k];
+            adjacent_edges.erase(vertex_repr);
+        }
     }
 
     void RemoveEdge(const T &left, T &right) override {
