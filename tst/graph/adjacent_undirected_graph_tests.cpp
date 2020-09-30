@@ -55,6 +55,27 @@ TEST(adjacent_undirected_graph_test, test_remove_int_vertex) {
     ASSERT_FALSE(adjacency_lists.contains(Vertex<int>{vertex1}));
 }
 
+TEST(adjacent_undirected_graph_test, test_remove_int_vertex_for_all_adjacent_edges_removed_too) {
+    AdjacentUndirectedGraph<int> adjacent_undirected_graph;
+
+    int vertex1{1};
+    int vertex2{1};
+
+    adjacent_undirected_graph.AddVertex(vertex1);
+    adjacent_undirected_graph.AddVertex(vertex2);
+    adjacent_undirected_graph.AddEdge(vertex1, vertex2);
+
+    adjacent_undirected_graph.RemoveVertex(vertex1);
+
+    const auto &adjacency_lists = adjacent_undirected_graph.GetAdjacencyLists();
+
+    const auto &found_vertex2_it = adjacency_lists.find(Vertex<int>{vertex2});
+    auto &adjacent_vertex2_edges = found_vertex2_it->second;
+
+    ASSERT_FALSE(adjacency_lists.contains(Vertex<int>{vertex1}));
+    ASSERT_FALSE(adjacent_vertex2_edges.contains(Edge<int>{vertex1, vertex2}));
+}
+
 TEST(adjacent_undirected_graph_test, test_remove_int_edge_when_all_vertices_present) {
     AdjacentUndirectedGraph<int> adjacent_undirected_graph;
 
