@@ -36,7 +36,7 @@ public:
         for (auto &[k, v] : adjacency_lists_) {
             std::vector<Edge<T>> to_remove;
             for (const Edge<T> &edge: v) {
-                if (edge.left.data == vertex || edge.right.data == vertex) {
+                if (edge.GetLeft().GetData() == vertex || edge.GetRight().GetData() == vertex) {
                     to_remove.push_back(edge);
                 }
             }
@@ -66,7 +66,7 @@ public:
     bool IsLinked() override {
         for (const auto &[k1, v1]: adjacency_lists_) {
             for (const auto &[k2, v2]: adjacency_lists_) {
-                if (GetDistance(k1.data, k2.data) == -1) {
+                if (GetDistance(k1.GetData(), k2.GetData()) == -1) {
                     return false;
                 }
             }
@@ -135,10 +135,10 @@ private:
             for (const auto &vertex: frontier) {
                 for (const auto &vertex_adjacent_edge: adjacency_lists_[vertex]) {
                     Vertex<T> target_vertex;
-                    if (vertex_adjacent_edge.left == vertex) {
-                        target_vertex = vertex_adjacent_edge.right;
+                    if (vertex_adjacent_edge.GetLeft() == vertex) {
+                        target_vertex = vertex_adjacent_edge.GetRight();
                     } else {
-                        target_vertex = vertex_adjacent_edge.left;
+                        target_vertex = vertex_adjacent_edge.GetLeft();
                     }
                     if (!parents.contains(target_vertex) && target_vertex != left_vertex_repr) {
                         parents[target_vertex] = vertex;
