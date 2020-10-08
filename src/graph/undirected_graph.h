@@ -1,35 +1,7 @@
 #pragma once
 
+#include "vertex.h"
 #include <cstddef>
-
-template<typename T>
-struct Vertex {
-    T data;
-
-    bool operator==(const Vertex &rhs) const {
-        return data == rhs.data;
-    }
-
-    bool operator!=(const Vertex &rhs) const {
-        return !(rhs == *this);
-    }
-
-    bool operator<(const Vertex &rhs) const {
-        return data < rhs.data;
-    }
-
-    bool operator>(const Vertex &rhs) const {
-        return rhs < *this;
-    }
-
-    bool operator<=(const Vertex &rhs) const {
-        return !(rhs < *this);
-    }
-
-    bool operator>=(const Vertex &rhs) const {
-        return !(*this < rhs);
-    }
-};
 
 template<typename T>
 struct Edge {
