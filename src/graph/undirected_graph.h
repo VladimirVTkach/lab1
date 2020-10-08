@@ -1,42 +1,8 @@
 #pragma once
 
 #include "vertex.h"
+#include "edge.h"
 #include <cstddef>
-
-template<typename T>
-struct Edge {
-    Vertex<T> left;
-    Vertex<T> right;
-
-    bool operator==(const Edge &rhs) const {
-        return left == rhs.left &&
-               right == rhs.right;
-    }
-
-    bool operator!=(const Edge &rhs) const {
-        return !(rhs == *this);
-    }
-
-    bool operator<(const Edge &rhs) const {
-        if (left < rhs.left)
-            return true;
-        if (rhs.left < left)
-            return false;
-        return right < rhs.right;
-    }
-
-    bool operator>(const Edge &rhs) const {
-        return rhs < *this;
-    }
-
-    bool operator<=(const Edge &rhs) const {
-        return !(rhs < *this);
-    }
-
-    bool operator>=(const Edge &rhs) const {
-        return !(*this < rhs);
-    }
-};
 
 template<typename T>
 class UndirectedGraph {
