@@ -7,6 +7,10 @@ public:
 
     Vertex(T data) : data(data) {}
 
+    T GetData() const {
+        return data;
+    }
+
     bool operator==(const Vertex &rhs) const {
         return data == rhs.data;
     }
