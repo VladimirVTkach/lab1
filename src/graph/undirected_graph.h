@@ -27,10 +27,10 @@ public:
 
 protected:
     Vertex<T> GetVertexRepr(const T &vertex) {
-        return Vertex<T>{vertex};
+        return Vertex<T>(vertex);
     }
 
     Edge<T> GetEdgeRepr(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
-        return Edge<T>{left_vertex_repr, right_vertex_repr};
+        return Edge<T>(left_vertex_repr, right_vertex_repr);
     }
 };
