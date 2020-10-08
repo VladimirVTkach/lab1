@@ -3,6 +3,8 @@
 template<typename T>
 class Vertex {
 public:
+    Vertex() {}
+
     Vertex(T data) : data(data) {}
 
     bool operator==(const Vertex &rhs) const {
