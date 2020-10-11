@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 /** Class representing book's character */
