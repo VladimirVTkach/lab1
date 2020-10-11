@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <vector>
 #include <chrono>
 #include <map>
 #include "../../src/model/author.h"
