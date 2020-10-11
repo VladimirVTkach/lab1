@@ -17,11 +17,15 @@ add_executable(lab1 src/main.cpp
         tst/model/character_tests.cpp
         src/graph/undirected_graph.h
         src/graph/adjacent_undirected_graph.h
-        tst/graph/adjacent_undirected_graph_tests.cpp
+        tst/graph/adjacent_undirected_graph_int_tests.cpp
         src/graph/matrix_undirected_graph.h
-        tst/graph/matrix_undirected_graph_tests.cpp
+        tst/graph/matrix_undirected_graph_int_tests.cpp
         src/graph/vertex.h
-        src/graph/edge.h)
+        src/graph/edge.h
+        tst/graph/adjacent_undirected_graph_double_tests.cpp
+        tst/graph/matrix_undirected_graph_double_tests.cpp
+        tst/graph/adjacent_undirected_graph_book_tests.cpp
+        tst/graph/matrix_undirected_graph_book_tests.cpp)
 
 add_subdirectory(tst/lib/googletest-master)
 include_directories(tst/lib/googletest-master/googletest include)
