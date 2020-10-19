@@ -129,17 +129,17 @@ public:
 
     std::string ToString() const override {
         std::stringstream ss;
-
-        if (GetVerticesCount() == 0) {
-            ss << "Graph is empty";
-        } else {
-            for (const auto &[vertex, edges]: adjacency_lists_) {
-                ss << vertex << ": ";
-                for (auto it = edges.begin(); it != edges.end(); it++) {
-                    ss << *it << ", ";
-                }
-                ss << "\n";
+        for (const auto &[vertex, edges]: adjacency_lists_) {
+            ss << vertex << ": ";
+            for (auto it = edges.begin(); it != edges.end(); it++) {
+                ss << *it << ", ";
             }
+            ss << "\n";
+        }
+
+        std::string graph_representation = ss.str();
+        if(graph_representation.empty()) {
+            return "Graph is empty";
         }
         return ss.str();
     }
