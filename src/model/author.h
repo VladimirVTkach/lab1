@@ -22,46 +22,17 @@ public:
     /** @return author's date of birth */
     const std::chrono::year_month_day &GetDateOfBirth() const;
 
-    /** Compares for equality this instance to other Author instance.
-     * If instances are equal returns true, otherwise false.
-     * @param rhs instance of Author to compare this instance to
-     * @return comparison result
-     * */
+
     bool operator==(const Author &rhs) const;
 
-    /** Compares for inequality this instance to other Author instance.
-     * If instances are not equal returns true, otherwise false.
-     * @param rhs instance of Author to compare this instance to
-     * @return comparison result
-     * */
     bool operator!=(const Author &rhs) const;
 
-    /** Compares the relative order of this instance to other Author instance.
-     * If this instances is less then other instance returns true, otherwise false.
-     * @param rhs instance of Author to compare this instance to
-     * @return comparison result
-     * */
     bool operator<(const Author &rhs) const;
 
-    /** Compares the relative order of this instance to other Author instance.
-     * If this instances is greater then other instance returns true, otherwise false.
-     * @param rhs instance of Author to compare this instance to
-     * @return comparison result
-     * */
     bool operator>(const Author &rhs) const;
 
-    /** Compares the relative order of this instance to other Author instance.
-     * If this instances is less than or equals to other instance returns true, otherwise false.
-     * @param rhs instance of Author to compare this instance to
-     * @return comparison result
-     * */
     bool operator<=(const Author &rhs) const;
 
-    /** Compares the relative order of this instance to other Author instance.
-     * If this instances is greater than or equals to other instance returns true, otherwise false.
-     * @param rhs instance of Author to compare this instance to
-     * @return comparison result
-     * */
     bool operator>=(const Author &rhs) const;
 
     friend std::ostream &operator<<(std::ostream &os, const Author &author);
