@@ -132,8 +132,9 @@ public:
         for (const auto &[vertex, edges]: adjacency_lists_) {
             ss << vertex << ": ";
             for (auto it = edges.begin(); it != edges.end(); it++) {
-                ss << *it << ",";
+                ss << *it << ", ";
             }
+            ss << "\n";
         }
 
         return ss.str();
