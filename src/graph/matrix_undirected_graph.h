@@ -127,7 +127,21 @@ public:
     }
 
     std::string ToString() const override {
-        return std::string();
+        std::stringstream ss;
+        for (const auto &[vertex, edges]: adjacency_matrix_) {
+            ss << vertex << ": ";
+            for (auto it = edges.begin(); it != edges.end(); it++) {
+                auto entry = *it;
+                ss << entry.second << ", ";
+            }
+            ss << "\n";
+        }
+
+        std::string graph_representation = ss.str();
+        if(graph_representation.empty()) {
+            return "Graph is empty";
+        }
+        return ss.str();
     }
 
 private:
