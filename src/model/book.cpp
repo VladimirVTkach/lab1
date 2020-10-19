@@ -107,3 +107,9 @@ bool Book::operator<=(const Book &rhs) const {
 bool Book::operator>=(const Book &rhs) const {
     return !(*this < rhs);
 }
+
+std::ostream &operator<<(std::ostream &os, const Book &book) {
+    os << "name: " << book.name_ << " authors: " << book.authors_ << " pages: " << book.pages_ << " release_date: "
+       << book.release_date_ << " description: " << book.description_ << " characters: " << book.characters_;
+    return os;
+}

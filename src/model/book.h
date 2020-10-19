@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <map>
+#include <ostream>
 #include "author.h"
 #include "character.h"
 
@@ -45,6 +46,8 @@ public:
     bool operator<=(const Book &rhs) const;
 
     bool operator>=(const Book &rhs) const;
+
+    friend std::ostream &operator<<(std::ostream &os, const Book &book);
 
 private:
     std::string name_;
