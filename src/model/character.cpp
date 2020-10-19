@@ -4,14 +4,20 @@ Character::Character() :
         name_(""),
         biography_("") {}
 
+/** Constructs Character instance with specified field's values
+* @param name character's name
+* @param biography character's biography
+* */
 Character::Character(const std::string &name, const std::string &biography) :
         name_(name),
         biography_(biography) {}
 
+/** @return character's name */
 const std::string &Character::GetName() const {
     return Character::name_;
 }
 
+/** @return character's biography */
 const std::string &Character::GetBiography() const {
     return Character::biography_;
 }
