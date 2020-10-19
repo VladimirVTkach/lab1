@@ -108,8 +108,29 @@ bool Book::operator>=(const Book &rhs) const {
     return !(*this < rhs);
 }
 
+std::ostream &operator<<(std::ostream &os, const std::vector<Author> &authors) {
+    os << "[";
+    for (const Author &author: authors) {
+        os << "{" << author << "},";
+    }
+    os << "]";
+    return os;
+}
+
+std::ostream &operator<<(std::ostream &os, const std::map<Character *, CharacterRole> &characters) {
+    os << "{";
+    for (const auto &[character, role]: characters) {
+        os << "{{" << character << "}: " << role << "}" << ",";
+    }
+    os << "}";
+    return os;
+}
+
 std::ostream &operator<<(std::ostream &os, const Book &book) {
     os << "name: " << book.name_ << " authors: " << book.authors_ << " pages: " << book.pages_ << " release_date: "
-       << book.release_date_ << " description: " << book.description_ << " characters: " << book.characters_;
+       << book.release_date_.day().operator unsigned int() << "."
+       << book.release_date_.month().operator unsigned int() << "."
+       << book.release_date_.year().operator int()
+       << " description: " << book.description_ << " characters: " << book.characters_;
     return os;
 }
