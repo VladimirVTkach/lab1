@@ -76,6 +76,10 @@ public:
         return true;
     }
 
+    void Clear() override {
+        adjacency_lists_.clear();
+    }
+
     int GetDistance(const T &left, const T &right) override {
         const Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
         const Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
