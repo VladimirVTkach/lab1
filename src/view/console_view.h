@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../graph/undirected_graph.h"
 #include <iostream>
 
