@@ -16,8 +16,7 @@ TEST(matrix_undirected_graph_book_test, test_add_vertex) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
-
+                 std::map<Character*, CharacterRole>());
     adjacent_undirected_graph.AddVertex(vertex1);
 
     const auto &adjacency_matrix = adjacent_undirected_graph.GetAdjacencyMatrix();
@@ -34,8 +33,7 @@ TEST(matrix_undirected_graph_book_test, test_add_edge_when_all_vertices_present)
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
-
+                 std::map<Character*, CharacterRole>());
     Book vertex2("Book 2",
                  {Author("Petr",
                          "Petrov",
@@ -43,7 +41,7 @@ TEST(matrix_undirected_graph_book_test, test_add_edge_when_all_vertices_present)
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -65,7 +63,7 @@ TEST(matrix_undirected_graph_book_test, test_add_edge_when_one_vertex_absent) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -74,7 +72,7 @@ TEST(matrix_undirected_graph_book_test, test_add_edge_when_one_vertex_absent) {
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
 
@@ -91,7 +89,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_vertex) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.RemoveVertex(vertex1);
@@ -111,7 +109,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_vertex_for_all_adjacent_edge
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -120,7 +118,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_vertex_for_all_adjacent_edge
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -144,7 +142,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_edge_when_all_vertices_prese
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -153,7 +151,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_edge_when_all_vertices_prese
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -176,7 +174,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_edge_when_one_vertex_absent)
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -185,7 +183,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_edge_when_one_vertex_absent)
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -207,7 +205,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_linked) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -216,7 +214,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_linked) {
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -225,7 +223,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_linked) {
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -248,7 +246,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_not_linked)
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -257,7 +255,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_not_linked)
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -266,7 +264,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_not_linked)
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -287,7 +285,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_all_vertices_pres
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -296,7 +294,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_all_vertices_pres
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -305,7 +303,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_all_vertices_pres
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -328,7 +326,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_one_vertex_absent
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -337,7 +335,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_one_vertex_absent
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -346,7 +344,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_one_vertex_absent
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -371,7 +369,7 @@ TEST(matrix_undirected_graph_book_test, test_get_vertices_count) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -380,7 +378,7 @@ TEST(matrix_undirected_graph_book_test, test_get_vertices_count) {
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -389,7 +387,7 @@ TEST(matrix_undirected_graph_book_test, test_get_vertices_count) {
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -408,7 +406,7 @@ TEST(matrix_undirected_graph_book_test, test_get_edges_count) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -417,7 +415,7 @@ TEST(matrix_undirected_graph_book_test, test_get_edges_count) {
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -426,7 +424,7 @@ TEST(matrix_undirected_graph_book_test, test_get_edges_count) {
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
@@ -449,7 +447,7 @@ TEST(matrix_undirected_graph_book_test, test_get_adjacent_edges_count) {
                  111,
                  std::chrono::year_month_day(),
                  "description of Book 1",
-                 {{CharacterRole::MAIN, {Character("Character 1", "Character 1 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex2("Book 2",
                  {Author("Petr",
@@ -458,7 +456,7 @@ TEST(matrix_undirected_graph_book_test, test_get_adjacent_edges_count) {
                  222,
                  std::chrono::year_month_day(),
                  "description of Book 2",
-                 {{CharacterRole::MAIN, {Character("Character 2", "Character 2 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     Book vertex3("Book 3",
                  {Author("Sidor",
@@ -467,7 +465,7 @@ TEST(matrix_undirected_graph_book_test, test_get_adjacent_edges_count) {
                  333,
                  std::chrono::year_month_day(),
                  "description of Book 3",
-                 {{CharacterRole::MAIN, {Character("Character 3", "Character 3 bio")}}});
+                 std::map<Character*, CharacterRole>());
 
     adjacent_undirected_graph.AddVertex(vertex1);
     adjacent_undirected_graph.AddVertex(vertex2);
