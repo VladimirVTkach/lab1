@@ -57,3 +57,11 @@ bool Author::operator<=(const Author &rhs) const {
 bool Author::operator>=(const Author &rhs) const {
     return !(*this < rhs);
 }
+
+std::ostream &operator<<(std::ostream &os, const Author &author) {
+    os << "first_name: " << author.first_name_ << " last_name: " << author.last_name_ << " date_of_birth: "
+       << author.date_of_birth_.day().operator unsigned int() << "."
+       << author.date_of_birth_.month().operator unsigned int() << "."
+       << author.date_of_birth_.year().operator int();
+    return os;
+}

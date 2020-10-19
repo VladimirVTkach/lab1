@@ -2,6 +2,7 @@
 
 #include <string>
 #include <chrono>
+#include <ostream>
 
 /** Class representing book's author */
 class Author {
@@ -67,6 +68,8 @@ public:
      * @return comparison result
      * */
     bool operator>=(const Author &rhs) const;
+
+    friend std::ostream &operator<<(std::ostream &os, const Author &author);
 
 private:
     std::string first_name_;
