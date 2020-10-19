@@ -15,10 +15,9 @@ public:
         std::cout << "5. Get total vertices count" << std::endl;
         std::cout << "6. Get total edges count" << std::endl;
         std::cout << "7. Get adjacent to vertex edges count" << std::endl;
-        std::cout << "8. Generate random graph" << std::endl;
-        std::cout << "9. Reset graph" << std::endl;
-        std::cout << "10. Show graph" << std::endl;
-        std::cout << "11. Exit" << std::endl;
+        std::cout << "8. Reset graph" << std::endl;
+        std::cout << "9. Show graph" << std::endl;
+        std::cout << "10. Exit" << std::endl;
     }
 
     template<typename T>
