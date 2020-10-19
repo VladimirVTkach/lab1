@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ostream>
+
 /** Class representing graph vertex */
 template<typename T>
 class Vertex {
@@ -68,6 +70,11 @@ public:
      * */
     bool operator>=(const Vertex &rhs) const {
         return !(*this < rhs);
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const Vertex &vertex) {
+        os << "{" << vertex.data << "}";
+        return os;
     }
 
 private:
