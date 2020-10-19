@@ -6,14 +6,14 @@ Book::Book() :
         pages_(0),
         release_date_(std::chrono::year_month_day()),
         description_(""),
-        characters_(std::map<CharacterRole, std::vector<Character>>()) {}
+        characters_(std::map<Character*, CharacterRole>()) {}
 
 Book::Book(const std::string &name,
            const std::vector<Author> &authors,
            int pages,
            const std::chrono::year_month_day &release_date,
            const std::string &description,
-           const std::map<CharacterRole, std::vector<Character>> &characters) :
+           const std::map<Character*, CharacterRole> &characters) :
         name_(name),
         authors_(authors),
         pages_(pages),
@@ -41,7 +41,7 @@ const std::string &Book::GetDescription() const {
     return description_;
 }
 
-const std::map<CharacterRole, std::vector<Character>> &Book::GetCharacters() const {
+const std::map<Character*, CharacterRole> &Book::GetCharacters() const {
     return characters_;
 }
 
