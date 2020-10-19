@@ -36,6 +36,9 @@ public:
      * */
     virtual bool IsLinked() = 0;
 
+    /** Clears all data stored in graph */
+    virtual void Clear() = 0;
+
     /** Finds distance between two vertices
      * @param left source vertex
      * @param right destination vertex
