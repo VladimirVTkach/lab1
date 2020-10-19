@@ -6,14 +6,22 @@ Book::Book() :
         pages_(0),
         release_date_(std::chrono::year_month_day()),
         description_(""),
-        characters_(std::map<Character*, CharacterRole>()) {}
+        characters_(std::map<Character *, CharacterRole>()) {}
 
+/** Constructs Book instance with specified field's values
+* @param name book's name
+* @param authors list of book authors
+* @param pages count of pages in book
+* @param release_date book's release date
+* @param description book's short description
+* @param characters book's characters each stored with key corresponding to their roles
+* */
 Book::Book(const std::string &name,
            const std::vector<Author> &authors,
            int pages,
            const std::chrono::year_month_day &release_date,
            const std::string &description,
-           const std::map<Character*, CharacterRole> &characters) :
+           const std::map<Character *, CharacterRole> &characters) :
         name_(name),
         authors_(authors),
         pages_(pages),
@@ -21,27 +29,33 @@ Book::Book(const std::string &name,
         description_(description),
         characters_(characters) {}
 
+/** @return book's name */
 const std::string &Book::GetName() const {
     return name_;
 }
 
+/** @return list of book authors */
 const std::vector<Author> &Book::GetAuthors() const {
     return authors_;
 }
 
+/** @return count of pages in book */
 int Book::GetPages() const {
     return pages_;
 }
 
+/** @return book's release date */
 const std::chrono::year_month_day &Book::GetReleaseDate() const {
     return release_date_;
 }
 
+/** @return book's short description */
 const std::string &Book::GetDescription() const {
     return description_;
 }
 
-const std::map<Character*, CharacterRole> &Book::GetCharacters() const {
+/** @return book's characters each stored with key corresponding to their roles */
+const std::map<Character *, CharacterRole> &Book::GetCharacters() const {
     return characters_;
 }
 
