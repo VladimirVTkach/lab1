@@ -63,10 +63,16 @@ public:
     }
 
     void GetAdjacentEdgesCount() {
-        T vertex = console_view_.GetUserInput<T>("Enter vertex value");
-        size_t adjacent_edges_count = undirected_graph_.GetAdjacentEdgesCount(vertex);
-        console_view_.ShowMessage(std::to_string(adjacent_edges_count));
-        console_view_.ShowMainMenu();
+        try {
+            T vertex = console_view_.GetUserInput<T>("Enter vertex value");
+            size_t adjacent_edges_count = undirected_graph_.GetAdjacentEdgesCount(vertex);
+            console_view_.ShowMessage(std::to_string(adjacent_edges_count));
+            console_view_.ShowMainMenu();
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
+
     }
 
     void Clear() {
