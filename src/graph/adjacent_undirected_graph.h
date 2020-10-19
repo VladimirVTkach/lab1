@@ -3,6 +3,7 @@
 #include <map>
 #include <set>
 #include <algorithm>
+#include <sstream>
 #include "undirected_graph.h"
 
 template<typename T>
@@ -125,6 +126,18 @@ public:
         return adjacency_lists_;
     }
 
+    std::string ToString() const override {
+        std::stringstream ss;
+
+        for (const auto &[vertex, edges]: adjacency_lists_) {
+            ss << vertex << ": ";
+            for (auto it = edges.begin(); it != edges.end(); it++) {
+                ss << *it << ",";
+            }
+        }
+
+        return ss.str();
+    }
 
 private:
     std::map<Vertex<T>, Vertex<T>> Bfs(const Vertex<T> &left_vertex_repr, const Vertex<T> &right_vertex_repr) {
