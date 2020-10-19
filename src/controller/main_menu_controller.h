@@ -13,11 +13,11 @@ public:
                                                           crud_controller(CrudController<T>(undirected_graph,
                                                                                             console_view)) {}
 
-    void start() {
+    void Start() {
         console_view_.ShowMainMenu();
         while (true) {
             int option = console_view_.GetUserInput<int>("Your option");
-            if (option <= 0 || option > 11) {
+            if (option <= 0 || option > 10) {
                 console_view_.ShowMessage("Invalid option chosen");
             } else {
                 if (option == 1) {
