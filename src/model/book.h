@@ -28,7 +28,7 @@ public:
          int pages,
          const std::chrono::year_month_day &release_date,
          const std::string &description,
-         const std::map<CharacterRole, std::vector<Character>> &characters);
+         const std::map<Character *, CharacterRole> &characters);
 
     /** @return book's name */
     const std::string &GetName() const;
@@ -46,48 +46,18 @@ public:
     const std::string &GetDescription() const;
 
     /** @return book's characters each stored with key corresponding to their roles */
-    const std::map<CharacterRole, std::vector<Character>> &GetCharacters() const;
+    const std::map<Character *, CharacterRole> &GetCharacters() const;
 
-    /** Compares for equality this instance to other Book instance.
-     * If instances are equal returns true, otherwise false.
-     * @param rhs instance of Book to compare this instance to
-     * @return comparison result
-     * */
     bool operator==(const Book &rhs) const;
 
-    /** Compares for inequality this instance to other Book instance.
-     * If instances are not equal returns true, otherwise false.
-     * @param rhs instance of Book to compare this instance to
-     * @return comparison result
-     * */
     bool operator!=(const Book &rhs) const;
 
-    /** Compares the relative order of this instance to other Book instance.
-     * If this instances is less then other instance returns true, otherwise false.
-     * @param rhs instance of Book to compare this instance to
-     * @return comparison result
-     * */
     bool operator<(const Book &rhs) const;
 
-    /** Compares the relative order of this instance to other Book instance.
-     * If this instances is greater then other instance returns true, otherwise false.
-     * @param rhs instance of Book to compare this instance to
-     * @return comparison result
-     * */
     bool operator>(const Book &rhs) const;
 
-    /** Compares the relative order of this instance to other Book instance.
-     * If this instances is less than or equals to other instance returns true, otherwise false.
-     * @param rhs instance of Book to compare this instance to
-     * @return comparison result
-     * */
     bool operator<=(const Book &rhs) const;
 
-    /** Compares the relative order of this instance to other Book instance.
-    * If this instances is greater than or equals to other instance returns true, otherwise false.
-    * @param rhs instance of Book to compare this instance to
-    * @return comparison result
-    * */
     bool operator>=(const Book &rhs) const;
 
 private:
@@ -96,5 +66,5 @@ private:
     int pages_;
     std::chrono::year_month_day release_date_;
     std::string description_;
-    std::map<CharacterRole, std::vector<Character>> characters_;
+    std::map<Character *, CharacterRole> characters_;
 };
