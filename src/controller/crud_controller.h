@@ -29,20 +29,25 @@ public:
         T right_vertex = console_view_.GetUserInput<T>("Enter right vertex value");
         try {
             undirected_graph_.AddEdge(left_vertex, right_vertex);
+            console_view_.ShowGraph(undirected_graph_);
+            console_view_.ShowMainMenu();
         } catch (std::runtime_error &e) {
             console_view_.ShowMessage(e.what());
             console_view_.ShowMainMenu();
         }
-        console_view_.ShowGraph(undirected_graph_);
-        console_view_.ShowMainMenu();
     }
 
     void RemoveEdge() {
         T left_vertex = console_view_.GetUserInput<T>("Enter left vertex value");
         T right_vertex = console_view_.GetUserInput<T>("Enter right vertex value");
-        undirected_graph_.RemoveEdge(left_vertex, right_vertex);
-        console_view_.ShowGraph(undirected_graph_);
-        console_view_.ShowMainMenu();
+        try {
+            undirected_graph_.RemoveEdge(left_vertex, right_vertex);
+            console_view_.ShowGraph(undirected_graph_);
+            console_view_.ShowMainMenu();
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
     }
 
     void GetVerticesCount() {
