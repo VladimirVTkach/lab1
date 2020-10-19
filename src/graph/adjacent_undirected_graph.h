@@ -10,11 +10,19 @@
 template<typename T>
 class AdjacentUndirectedGraph : public UndirectedGraph<T> {
 public:
+
+    /** Adds new vertex to the graph
+     * @param vertex vertex to add
+     * */
     void AddVertex(const T &vertex) override {
         Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
         adjacency_lists_.try_emplace(vertex_repr, std::set<Edge<T>>());
     }
 
+    /** Adds new edge to the graph
+     * @param left left side vertex of the edge
+     * @param right right side vertex of the edge
+     * */
     void AddEdge(const T &left, T &right) override {
         Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
         Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
@@ -31,6 +39,9 @@ public:
         ++edges_count_;
     }
 
+    /** Removes vertex from the graph
+     * @param vertex vertex to remove
+     * */
     void RemoveVertex(const T &vertex) override {
         Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
         adjacency_lists_.erase(vertex_repr);
@@ -49,6 +60,10 @@ public:
         }
     }
 
+    /** Removes edge from the graph
+     * @param left left side vertex of the edge
+     * @param right right side vertex of the edge
+     * */
     void RemoveEdge(const T &left, T &right) override {
         const Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
         const Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
@@ -65,6 +80,9 @@ public:
         --edges_count_;
     }
 
+    /** Checks whether the graph is linked
+     * @return true if graph is linked, otherwise false
+     * */
     bool IsLinked() override {
         for (const auto &[k1, v1]: adjacency_lists_) {
             for (const auto &[k2, v2]: adjacency_lists_) {
@@ -76,10 +94,16 @@ public:
         return true;
     }
 
+    /** Clears all data stored in graph */
     void Clear() override {
         adjacency_lists_.clear();
     }
 
+    /** Finds distance between two vertices
+     * @param left source vertex
+     * @param right destination vertex
+     * @return distance between vertices
+     * */
     int GetDistance(const T &left, const T &right) override {
         const Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
         const Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
@@ -109,14 +133,20 @@ public:
         }
     }
 
+    /** @return total vertices count */
     size_t GetVerticesCount() override {
         return adjacency_lists_.size();
     }
 
+    /** @return total edges count */
     size_t GetEdgesCount() override {
         return edges_count_;
     }
 
+    /** Finds count of adjacent to vertex edges
+     * @param vertex target vertex
+     * @return count of edges adjacent to target vertex
+     * */
     size_t GetAdjacentEdgesCount(const T &vertex) override {
         Vertex<T> vertex_repr = this->GetVertexRepr(vertex);
         auto vertex_iterator = adjacency_lists_.find(vertex_repr);
@@ -127,10 +157,12 @@ public:
         }
     }
 
+    /** @return adjacency list */
     const std::map<Vertex<T>, std::set<Edge<T>>> &GetAdjacencyLists() const {
         return adjacency_lists_;
     }
 
+    /** @return string representation of graph*/
     std::string ToString() const override {
         std::stringstream ss;
         for (const auto &[vertex, edges]: adjacency_lists_) {
@@ -142,7 +174,7 @@ public:
         }
 
         std::string graph_representation = ss.str();
-        if(graph_representation.empty()) {
+        if (graph_representation.empty()) {
             return "Graph is empty";
         }
         return ss.str();
