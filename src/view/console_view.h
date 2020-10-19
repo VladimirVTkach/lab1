@@ -23,4 +23,11 @@ public:
     void ShowGraph(const UndirectedGraph<T> &graph) {
         std::cout << graph << std::endl;
     }
+
+    int GetUserInput(const std::string &hint) {
+        std::cout << hint << ": " << std::endl;
+        int response = -1;
+        std::cin >> response;
+        return response;
+    }
 };
