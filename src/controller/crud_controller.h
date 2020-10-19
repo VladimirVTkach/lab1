@@ -27,7 +27,12 @@ public:
     void AddEdge() {
         T left_vertex = console_view_.GetUserInput<T>("Enter left vertex value");
         T right_vertex = console_view_.GetUserInput<T>("Enter right vertex value");
-        undirected_graph_.AddEdge(left_vertex, right_vertex);
+        try {
+            undirected_graph_.AddEdge(left_vertex, right_vertex);
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
         console_view_.ShowGraph(undirected_graph_);
         console_view_.ShowMainMenu();
     }
