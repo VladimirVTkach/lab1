@@ -130,14 +130,17 @@ public:
     std::string ToString() const override {
         std::stringstream ss;
 
-        for (const auto &[vertex, edges]: adjacency_lists_) {
-            ss << vertex << ": ";
-            for (auto it = edges.begin(); it != edges.end(); it++) {
-                ss << *it << ", ";
+        if (GetVerticesCount() == 0) {
+            ss << "Graph is empty";
+        } else {
+            for (const auto &[vertex, edges]: adjacency_lists_) {
+                ss << vertex << ": ";
+                for (auto it = edges.begin(); it != edges.end(); it++) {
+                    ss << *it << ", ";
+                }
+                ss << "\n";
             }
-            ss << "\n";
         }
-
         return ss.str();
     }
 
