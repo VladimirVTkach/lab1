@@ -70,6 +70,10 @@ public:
         return true;
     }
 
+    void Clear() override {
+        adjacency_matrix_.clear();
+    }
+
     int GetDistance(const T &left, const T &right) override {
         Vertex<T> left_vertex_repr = this->GetVertexRepr(left);
         Vertex<T> right_vertex_repr = this->GetVertexRepr(right);
@@ -120,6 +124,10 @@ public:
 
     const std::map<Vertex<T>, std::map<Vertex<T>, Edge<T>>> &GetAdjacencyMatrix() {
         return adjacency_matrix_;
+    }
+
+    std::string ToString() const override {
+        return std::string();
     }
 
 private:
