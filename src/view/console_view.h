@@ -32,4 +32,8 @@ public:
         std::cin >> response;
         return response;
     }
+
+    void ShowMessage(const std::string &message) {
+        std::cout << message << std::endl;
+    }
 };
