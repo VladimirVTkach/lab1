@@ -1,5 +1,6 @@
 #pragma once
 
+#include <ostream>
 #include "vertex.h"
 
 /** Class representing graph edge */
@@ -81,6 +82,11 @@ public:
      * */
     bool operator>=(const Edge &rhs) const {
         return !(*this < rhs);
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const Edge &edge) {
+        os << "{" << edge.left << " - " << edge.right << "}";
+        return os;
     }
 
 private:
