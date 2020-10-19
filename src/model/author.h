@@ -9,11 +9,6 @@ class Author {
 public:
     Author();
 
-    /** Constructs Author instance with specified field's values
-     * @param first_name author's first name
-     * @param last_name author's last name
-     * @param date_of_birth author's date of birth
-     * */
     Author(const std::string &first_name,
            const std::string &last_name,
            const std::chrono::year_month_day &date_of_birth);

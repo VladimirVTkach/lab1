@@ -5,6 +5,12 @@ Author::Author() :
         last_name_(""),
         date_of_birth_(std::chrono::year_month_day()) {}
 
+/** Constructs Author instance with specified field's values
+* @param first_name author's first name
+* @param last_name author's last name
+* @param date_of_birth author's date of birth
+* */
+
 Author::Author(const std::string &first_name,
                const std::string &last_name,
                const std::chrono::year_month_day &date_of_birth) :
@@ -12,14 +18,17 @@ Author::Author(const std::string &first_name,
         last_name_(last_name),
         date_of_birth_(date_of_birth) {}
 
+/** @return author's first name */
 const std::string &Author::GetFirstName() const {
     return Author::first_name_;
 }
 
+/** @return author's last name */
 const std::string &Author::GetLastName() const {
     return Author::last_name_;
 }
 
+/** @return author's date of birth */
 const std::chrono::year_month_day &Author::GetDateOfBirth() const {
     return Author::date_of_birth_;
 }
