@@ -2,6 +2,7 @@
 
 #include <map>
 #include <set>
+#include <vector>
 #include <algorithm>
 #include <sstream>
 #include "undirected_graph.h"
