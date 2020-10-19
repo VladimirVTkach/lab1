@@ -3,6 +3,7 @@
 #include "vertex.h"
 #include "edge.h"
 #include <cstddef>
+#include <ostream>
 
 /** Abstract class representing undirected graph */
 template<typename T>
@@ -53,6 +54,13 @@ public:
      * @return count of edges adjacent to target vertex
      * */
     virtual size_t GetAdjacentEdgesCount(const T &vertex) = 0;
+
+    virtual std::string ToString() const = 0;
+
+    friend std::ostream &operator<<(std::ostream &os, const UndirectedGraph &graph) {
+        os << graph.ToString();
+        return os;
+    }
 
 protected:
     /** Returns vertex representation
