@@ -25,7 +25,10 @@ add_executable(lab1 src/main.cpp
         tst/graph/adjacent_undirected_graph_double_tests.cpp
         tst/graph/matrix_undirected_graph_double_tests.cpp
         tst/graph/adjacent_undirected_graph_book_tests.cpp
-        tst/graph/matrix_undirected_graph_book_tests.cpp)
+        tst/graph/matrix_undirected_graph_book_tests.cpp
+        src/view/console_view.h
+        src/controller/main_menu_controller.h
+        src/controller/crud_controller.h)
 
 add_subdirectory(tst/lib/googletest-master)
 include_directories(tst/lib/googletest-master/googletest include)
