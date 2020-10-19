@@ -44,3 +44,8 @@ bool Character::operator<=(const Character &rhs) const {
 bool Character::operator>=(const Character &rhs) const {
     return !(*this < rhs);
 }
+
+std::ostream &operator<<(std::ostream &os, const Character &character) {
+    os << "name: " << character.name_ << " biography: " << character.biography_;
+    return os;
+}

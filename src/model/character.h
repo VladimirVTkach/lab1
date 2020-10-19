@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <ostream>
 
 /** Class representing book's character */
 class Character {
@@ -61,6 +62,8 @@ public:
    * @return comparison result
    * */
     bool operator>=(const Character &rhs) const;
+
+    friend std::ostream &operator<<(std::ostream &os, const Character &character);
 
 private:
     std::string name_;
