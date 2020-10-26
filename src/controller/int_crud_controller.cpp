@@ -1,5 +1,8 @@
 #include "int_crud_controller.h"
 
+IntCrudController::IntCrudController(UndirectedGraph<int> &undirected_graph, const ConsoleView &console_view) :
+        CrudController<int>(undirected_graph, console_view) {}
+
 void IntCrudController::AddVertex() {
     int vertex = std::stoi(console_view_.GetUserInput("Enter vertex value"));
     undirected_graph_.AddVertex(vertex);

@@ -4,6 +4,9 @@
 
 class IntCrudController : public CrudController<int> {
 public:
+    IntCrudController(UndirectedGraph<int> &undirected_graph,
+                      const ConsoleView &console_view);
+
     void AddVertex() override;
 
     void RemoveVertex() override;
