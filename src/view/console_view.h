@@ -25,10 +25,9 @@ public:
         std::cout << graph << std::endl;
     }
 
-    template<typename T>
-    T GetUserInput(const std::string &hint) {
+    std::string GetUserInput(const std::string &hint) {
         std::cout << hint << ": " << std::endl;
-        T response;
+        std::string response;
         std::cin >> response;
         return response;
     }
