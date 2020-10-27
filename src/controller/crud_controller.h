@@ -29,6 +29,4 @@ public:
 protected:
     UndirectedGraph<T> &undirected_graph_;
     ConsoleView console_view_;
-
-    virtual T GetUserInput() = 0;
 };
