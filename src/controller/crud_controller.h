@@ -10,25 +10,75 @@ public:
                    const ConsoleView &console_view) : undirected_graph_(undirected_graph),
                                                       console_view_(console_view) {}
 
-    virtual void AddVertex() = 0;
+    void AddVertex() {
+        T vertex = GetVertex("Enter vertex value");
+        undirected_graph_.AddVertex(vertex);
+        console_view_.ShowGraph(undirected_graph_);
+        console_view_.ShowMainMenu();
+    }
 
-    virtual void RemoveVertex() = 0;
+    void RemoveVertex() {
+        T vertex = GetVertex("Enter vertex value");
+        undirected_graph_.RemoveVertex(vertex);
+        console_view_.ShowGraph(undirected_graph_);
+        console_view_.ShowMainMenu();
+    }
 
-    virtual void AddEdge() = 0;
+    void AddEdge() {
+        T left_vertex = GetVertex("Enter left vertex value");
+        T right_vertex = GetVertex("Enter right vertex value");
+        try {
+            undirected_graph_.AddEdge(left_vertex, right_vertex);
+            console_view_.ShowGraph(undirected_graph_);
+            console_view_.ShowMainMenu();
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
+    }
 
-    virtual void RemoveEdge() = 0;
+    void RemoveEdge() {
+        T left_vertex = GetVertex("Enter left vertex value");
+        T right_vertex = GetVertex("Enter right vertex value");
+        try {
+            undirected_graph_.RemoveEdge(left_vertex, right_vertex);
+            console_view_.ShowGraph(undirected_graph_);
+            console_view_.ShowMainMenu();
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
+    }
 
-    virtual void GetVerticesCount() = 0;
+    void GetVerticesCount() {
+        size_t vertices_count = undirected_graph_.GetVerticesCount();
+        console_view_.ShowMessage(std::to_string(vertices_count));
+        console_view_.ShowMainMenu();
+    }
 
-    virtual void GetEdgesCount() = 0;
+    void GetEdgesCount() {
+        size_t edges_count = undirected_graph_.GetEdgesCount();
+        console_view_.ShowMessage(std::to_string(edges_count));
+        console_view_.ShowMainMenu();
+    }
 
-    virtual void GetAdjacentEdgesCount() = 0;
+    void GetAdjacentEdgesCount() {
+        try {
+            T vertex = GetVertex("Enter vertex value");
+            size_t adjacent_edges_count = undirected_graph_.GetAdjacentEdgesCount(vertex);
+            console_view_.ShowMessage(std::to_string(adjacent_edges_count));
+            console_view_.ShowMainMenu();
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
+    }
 
-    virtual void Clear() = 0;
+    void Clear() = 0;
 
 protected:
     UndirectedGraph<T> &undirected_graph_;
     ConsoleView console_view_;
 
-    virtual T GetVertex() = 0;
+    virtual T GetVertex(std::string message) = 0;
 };
