@@ -74,7 +74,10 @@ public:
         }
     }
 
-    void Clear() = 0;
+    void Clear() {
+        undirected_graph_.Clear();
+        console_view_.ShowMainMenu();
+    };
 
 protected:
     UndirectedGraph<T> &undirected_graph_;
