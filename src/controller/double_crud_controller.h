@@ -5,21 +5,8 @@
 class DoubleCrudController : public CrudController<double> {
 public:
     DoubleCrudController(UndirectedGraph<double> &undirected_graph,
-                      const ConsoleView &console_view);
+                         const ConsoleView &console_view);
 
-    void AddVertex() override;
-
-    void RemoveVertex() override;
-
-    void AddEdge() override;
-
-    void RemoveEdge() override;
-
-    void GetVerticesCount() override;
-
-    void GetEdgesCount() override;
-
-    void GetAdjacentEdgesCount() override;
-
-    void Clear() override;
+protected:
+    double GetVertex(std::string message) override;
 };
