@@ -80,3 +80,11 @@ public:
 private:
     T data;
 };
+
+template<typename T>
+std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
+    for(T item: v) {
+        os << item << " ";
+    }
+    return os;
+}
