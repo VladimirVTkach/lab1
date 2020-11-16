@@ -50,6 +50,8 @@ const std::string &Book::GetDescription() const {
     return description_;
 }
 
+/** @param rhs book to compare with
+ *  @return true if current book equals to rhs */
 bool Book::operator==(const Book &rhs) const {
     return name_ == rhs.name_ &&
            authors_ == rhs.authors_ &&
@@ -58,10 +60,14 @@ bool Book::operator==(const Book &rhs) const {
            description_ == rhs.description_;
 }
 
+/** @param rhs book to compare with
+ *  @return true if current book not equals to rhs */
 bool Book::operator!=(const Book &rhs) const {
     return !(rhs == *this);
 }
 
+/** @param rhs book to compare with
+ *  @return true if current book is less than rhs */
 bool Book::operator<(const Book &rhs) const {
     if (name_ < rhs.name_)
         return true;
@@ -82,18 +88,27 @@ bool Book::operator<(const Book &rhs) const {
     return description_ < rhs.description_;
 }
 
+/** @param rhs book to compare with
+ *  @return true if current book is greater than rhs */
 bool Book::operator>(const Book &rhs) const {
     return rhs < *this;
 }
 
+/** @param rhs book to compare with
+ *  @return true if current book is less than or equals to rhs */
 bool Book::operator<=(const Book &rhs) const {
     return !(rhs < *this);
 }
 
+/** @param rhs book to compare with
+ *  @return true if current book is greater than or equals to rhs */
 bool Book::operator>=(const Book &rhs) const {
     return !(*this < rhs);
 }
 
+/** @param os target output stream
+ *  @param authors list of book authors for output
+ * */
 std::ostream &operator<<(std::ostream &os, const std::vector<Author> &authors) {
     os << "[";
     for (const Author &author: authors) {
@@ -103,6 +118,9 @@ std::ostream &operator<<(std::ostream &os, const std::vector<Author> &authors) {
     return os;
 }
 
+/** @param os target output stream
+ *  @param book book for output
+ * */
 std::ostream &operator<<(std::ostream &os, const Book &book) {
     os << "name: " << book.name_ << " authors: " << book.authors_ << " pages: " << book.pages_ << " release_date: "
        << book.release_date_.day().operator unsigned int() << "."
