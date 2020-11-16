@@ -8,8 +8,7 @@ TEST(book_tests, test_get_name) {
               std::vector<Author>(),
               0,
               std::chrono::year_month_day(),
-              "",
-              std::map<Character*, CharacterRole>());
+              "");
     ASSERT_EQ(name, book.GetName());
 }
 
@@ -24,8 +23,7 @@ TEST(book_tests, test_get_authors) {
               authors,
               0,
               std::chrono::year_month_day(),
-              "",
-              std::map<Character*, CharacterRole>());
+              "");
     ASSERT_EQ(authors, book.GetAuthors());
 }
 
@@ -35,8 +33,7 @@ TEST(book_tests, test_get_pages) {
               std::vector<Author>(),
               pages,
               std::chrono::year_month_day(),
-              "",
-              std::map<Character*, CharacterRole>());
+              "");
     ASSERT_EQ(pages, book.GetPages());
 }
 
@@ -49,8 +46,7 @@ TEST(book_tests, test_get_release_date) {
               std::vector<Author>(),
               0,
               release_date,
-              "",
-              std::map<Character*, CharacterRole>());
+              "");
     ASSERT_EQ(release_date, book.GetReleaseDate());
 }
 
@@ -60,22 +56,6 @@ TEST(book_tests, test_get_description) {
               std::vector<Author>(),
               0,
               std::chrono::year_month_day(),
-              description,
-              std::map<Character*, CharacterRole>());
+              description);
     ASSERT_EQ(description, book.GetDescription());
-}
-
-TEST(book_tests, test_get_characters) {
-    Character character("Woland", "evil character");
-
-    std::map<Character*, CharacterRole> characters;
-    characters[&character] = CharacterRole::MAIN;
-
-    Book book("",
-              std::vector<Author>(),
-              0,
-              std::chrono::year_month_day(),
-              "",
-              characters);
-    ASSERT_EQ(characters, book.GetCharacters());
 }
