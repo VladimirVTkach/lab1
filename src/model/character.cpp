@@ -22,6 +22,14 @@ const std::string &Character::GetBiography() const {
     return Character::biography_;
 }
 
+void Character::AddMention(Book *book, CharacterRole characterRole) {
+    mentions_[book] = characterRole;
+}
+
+const std::map<Book *, CharacterRole> &Character::GetMentions() const {
+    return mentions_;
+}
+
 bool Character::operator==(const Character &rhs) const {
     return name_ == rhs.name_ &&
            biography_ == rhs.biography_ &&
@@ -70,8 +78,4 @@ bool Character::operator<=(const Character &rhs) const {
 
 bool Character::operator>=(const Character &rhs) const {
     return !(*this < rhs);
-}
-
-const std::map<Book *, CharacterRole> &Character::GetMentions() const {
-    return mentions_;
 }
