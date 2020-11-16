@@ -38,7 +38,7 @@ public:
     /** Compares two books for inequality */
     bool operator!=(const Book &rhs) const;
 
-    /**  */
+    /** Output book to the target stream */
     friend std::ostream &operator<<(std::ostream &os, const Book &book);
 
     /** Check whether current book is less then other */
