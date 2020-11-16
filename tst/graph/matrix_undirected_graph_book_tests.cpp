@@ -200,7 +200,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_linked) {
                          std::chrono::year_month_day())},
                  222,
                  std::chrono::year_month_day(),
-                 "description of Book 2";
+                 "description of Book 2");
 
     Book vertex3("Book 3",
                  {Author("Sidor",
