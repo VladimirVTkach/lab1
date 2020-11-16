@@ -24,7 +24,8 @@ const std::string &Character::GetBiography() const {
 
 bool Character::operator==(const Character &rhs) const {
     return name_ == rhs.name_ &&
-           biography_ == rhs.biography_;
+           biography_ == rhs.biography_ &&
+           mentions_ == rhs.mentions_;
 }
 
 bool Character::operator!=(const Character &rhs) const {
@@ -36,7 +37,27 @@ bool Character::operator<(const Character &rhs) const {
         return true;
     if (rhs.name_ < name_)
         return false;
-    return biography_ < rhs.biography_;
+    if (biography_ < rhs.biography_)
+        return true;
+    if (rhs.biography_ < biography_)
+        return false;
+    return mentions_ < rhs.mentions_;
+}
+
+std::ostream &operator<<(std::ostream &os, const std::map<Book *, CharacterRole> &mentions_) {
+    os << "{";
+    for (const auto &[key, value]: mentions_) {
+        os << "{" << key << ": " << value << "}";
+        os << ",";
+    }
+    os << "}";
+    return os;
+}
+
+std::ostream &operator<<(std::ostream &os, const Character &character) {
+    os << "name_: " << character.name_ << " biography_: " << character.biography_ << " mentions_: "
+       << character.mentions_;
+    return os;
 }
 
 bool Character::operator>(const Character &rhs) const {
@@ -51,7 +72,6 @@ bool Character::operator>=(const Character &rhs) const {
     return !(*this < rhs);
 }
 
-std::ostream &operator<<(std::ostream &os, const Character &character) {
-    os << "name: " << character.name_ << " biography: " << character.biography_;
-    return os;
+const std::map<Book *, CharacterRole> &Character::GetMentions() const {
+    return mentions_;
 }
