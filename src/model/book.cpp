@@ -5,8 +5,7 @@ Book::Book() :
         authors_(std::vector<Author>()),
         pages_(0),
         release_date_(std::chrono::year_month_day()),
-        description_(""),
-        characters_(std::map<Character *, CharacterRole>()) {}
+        description_("") {}
 
 /** Constructs Book instance with specified field's values
 * @param name book's name
@@ -14,20 +13,17 @@ Book::Book() :
 * @param pages count of pages in book
 * @param release_date book's release date
 * @param description book's short description
-* @param characters book's characters each stored with key corresponding to their roles
 * */
 Book::Book(const std::string &name,
            const std::vector<Author> &authors,
            int pages,
            const std::chrono::year_month_day &release_date,
-           const std::string &description,
-           const std::map<Character *, CharacterRole> &characters) :
+           const std::string &description) :
         name_(name),
         authors_(authors),
         pages_(pages),
         release_date_(release_date),
-        description_(description),
-        characters_(characters) {}
+        description_(description) {}
 
 /** @return book's name */
 const std::string &Book::GetName() const {
@@ -54,18 +50,12 @@ const std::string &Book::GetDescription() const {
     return description_;
 }
 
-/** @return book's characters each stored with key corresponding to their roles */
-const std::map<Character *, CharacterRole> &Book::GetCharacters() const {
-    return characters_;
-}
-
 bool Book::operator==(const Book &rhs) const {
     return name_ == rhs.name_ &&
            authors_ == rhs.authors_ &&
            pages_ == rhs.pages_ &&
            release_date_ == rhs.release_date_ &&
-           description_ == rhs.description_ &&
-           characters_ == rhs.characters_;
+           description_ == rhs.description_;
 }
 
 bool Book::operator!=(const Book &rhs) const {
@@ -89,11 +79,7 @@ bool Book::operator<(const Book &rhs) const {
         return true;
     if (rhs.release_date_ < release_date_)
         return false;
-    if (description_ < rhs.description_)
-        return true;
-    if (rhs.description_ < description_)
-        return false;
-    return characters_ < rhs.characters_;
+    return description_ < rhs.description_;
 }
 
 bool Book::operator>(const Book &rhs) const {
@@ -117,20 +103,11 @@ std::ostream &operator<<(std::ostream &os, const std::vector<Author> &authors) {
     return os;
 }
 
-std::ostream &operator<<(std::ostream &os, const std::map<Character *, CharacterRole> &characters) {
-    os << "{";
-    for (const auto &[character, role]: characters) {
-        os << "{{" << character << "}: " << role << "}" << ",";
-    }
-    os << "}";
-    return os;
-}
-
 std::ostream &operator<<(std::ostream &os, const Book &book) {
     os << "name: " << book.name_ << " authors: " << book.authors_ << " pages: " << book.pages_ << " release_date: "
        << book.release_date_.day().operator unsigned int() << "."
        << book.release_date_.month().operator unsigned int() << "."
        << book.release_date_.year().operator int()
-       << " description: " << book.description_ << " characters: " << book.characters_;
+       << " description: " << book.description_;
     return os;
 }
