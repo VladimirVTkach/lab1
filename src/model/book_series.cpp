@@ -5,27 +5,23 @@ BookSeries::BookSeries() {}
 /** Adds new book to the series
  * @param book book to add
  * */
-void BookSeries::AddBook(Book &book) {
-    auto book_characters = book.GetCharacters();
-    for (auto entry : book_characters) {
-        auto character_ptr = entry.first;
-        if (series_.contains(character_ptr)) {
-            series_[character_ptr].insert(&book);
-        }
+void BookSeries::AddBook(Character *character, Book *book) {
+    if (!character->GetMentions().contains(book)) {
+        throw std::runtime_error("character is not mentioned in specified book.");
     }
+
+    series_[character].insert(book);
 }
 
 /** Removes book from the series
  * @param book book to remove
  * */
-void BookSeries::RemoveBook(Book &book) {
-    auto book_characters = book.GetCharacters();
-    for (auto entry : book_characters) {
-        auto character_ptr = entry.first;
-        if (series_.contains(character_ptr)) {
-            series_[character_ptr].erase(&book);
-        }
+void BookSeries::RemoveBook(Character *character, Book *book) {
+    if(!series_.contains(character)) {
+        throw std::runtime_error("character doesn't belong to any series");
     }
+
+    series_[character].erase(book);
 }
 
 /** @return books that are in one series */
