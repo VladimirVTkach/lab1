@@ -6,11 +6,6 @@
 #include "author.h"
 #include "character.h"
 
-/** Enum representing possible character roles in book */
-enum CharacterRole {
-    MAIN, SECONDARY
-};
-
 /** Class representing book */
 class Book {
 public:

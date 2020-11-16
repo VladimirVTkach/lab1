@@ -3,6 +3,11 @@
 #include <string>
 #include <ostream>
 
+/** Enum representing possible character roles in book */
+enum CharacterRole {
+    MAIN, SECONDARY
+};
+
 /** Class representing book's character */
 class Character {
 public:
