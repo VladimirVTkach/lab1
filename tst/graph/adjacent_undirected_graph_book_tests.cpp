@@ -183,7 +183,7 @@ TEST(adjacent_undirected_graph_book_test, test_remove_edge_when_one_vertex_absen
                          std::chrono::year_month_day())},
                  111,
                  std::chrono::year_month_day(),
-                 "description of Book 1";
+                 "description of Book 1");
 
     Book vertex2("Book 2",
                  {Author("Petr",
