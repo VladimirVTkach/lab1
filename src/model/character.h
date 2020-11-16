@@ -22,7 +22,7 @@ public:
 
     const std::string &GetBiography() const;
 
-    void AddMention(const Book* book, CharacterRole characterRole);
+    void AddMention(Book *book, CharacterRole characterRole);
 
     const std::map<Book *, CharacterRole> &GetMentions() const;
 
