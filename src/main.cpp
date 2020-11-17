@@ -20,4 +20,36 @@ int main() {
 //                                                    console_view,
 //                                                    book_crud_controller);
 //    main_menu_controller.Start();
+
+//    AdjacentUndirectedGraph<double> graph;
+//    ConsoleView console_view;
+//    DoubleCrudController book_crud_controller(graph, console_view);
+//    MainMenuController<double> main_menu_controller(graph,
+//                                                 console_view,
+//                                                 book_crud_controller);
+//    main_menu_controller.Start();
+
+//    AdjacentUndirectedGraph<std::string> graph;
+//    ConsoleView console_view;
+//    StringCrudController book_crud_controller(graph, console_view);
+//    MainMenuController<std::string> main_menu_controller(graph,
+//                                                 console_view,
+//                                                 book_crud_controller);
+//    main_menu_controller.Start();
+
+//    AdjacentUndirectedGraph<std::vector<int>> graph;
+//    ConsoleView console_view;
+//    VectorCrudController book_crud_controller(graph, console_view);
+//    MainMenuController<std::vector<int>> main_menu_controller(graph,
+//                                                  console_view,
+//                                                  book_crud_controller);
+//    main_menu_controller.Start();
+
+//    AdjacentUndirectedGraph<Book> graph;
+//    ConsoleView console_view;
+//    BookCrudController book_crud_controller(graph, console_view);
+//    MainMenuController<Book> main_menu_controller(graph,
+//                                                    console_view,
+//                                                    book_crud_controller);
+//    main_menu_controller.Start();
 }
