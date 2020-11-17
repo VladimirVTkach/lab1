@@ -2,6 +2,17 @@
 
 #include <ostream>
 
+/** @param os target output stream
+ *  @param v vector for vertex output
+ *  **/
+template<typename T>
+std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
+    for (T item: v) {
+        os << item << " ";
+    }
+    return os;
+}
+
 /** Class representing graph vertex */
 template<typename T>
 class Vertex {
@@ -72,6 +83,9 @@ public:
         return !(*this < rhs);
     }
 
+    /** @param os target output stream
+     *  @param vertex vertex for output
+     * */
     friend std::ostream &operator<<(std::ostream &os, const Vertex &vertex) {
         os << "{" << vertex.data << "}";
         return os;
@@ -80,11 +94,3 @@ public:
 private:
     T data;
 };
-
-template<typename T>
-std::ostream &operator<<(std::ostream &os, const std::vector<T> &v) {
-    for(T item: v) {
-        os << item << " ";
-    }
-    return os;
-}
