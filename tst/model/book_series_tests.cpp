@@ -20,6 +20,21 @@ TEST(book_series_test, test_add_book) {
     ASSERT_TRUE(book_series.GetAllSeries().at(&woland).contains(&master_and_margharita));
 }
 
+
+TEST(book_series_test, test_add_book_without_character_mention) {
+    BookSeries book_series;
+
+    Book master_and_margharita("Master and Margarita",
+                               std::vector<Author>(),
+                               212,
+                               std::chrono::year_month_day(),
+                               "interesting book");
+
+    Character woland("Woland", "evil character");
+
+    ASSERT_THROW(book_series.AddBook(&woland, &master_and_margharita), std::runtime_error);
+}
+
 TEST(book_series_test, test_remove_book) {
     BookSeries book_series;
 
@@ -37,6 +52,21 @@ TEST(book_series_test, test_remove_book) {
 
     book_series.RemoveBook(&woland, &master_and_margharita);
     ASSERT_FALSE(book_series.GetAllSeries().at(&woland).contains(&master_and_margharita));
+}
+
+TEST(book_series_test, test_remove_book_when_character_not_in_series) {
+    BookSeries book_series;
+
+    Book master_and_margharita("Master and Margarita",
+                               std::vector<Author>(),
+                               212,
+                               std::chrono::year_month_day(),
+                               "interesting book");
+
+    Character woland("Woland", "evil character");
+    woland.AddMention(&master_and_margharita, CharacterRole::MAIN);
+
+    ASSERT_THROW(book_series.RemoveBook(&woland, &master_and_margharita), std::runtime_error);
 }
 
 TEST(book_series_test, test_get_books_by_character) {
