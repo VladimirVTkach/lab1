@@ -30,7 +30,17 @@ add_executable(lab1 src/main.cpp
         src/controller/main_menu_controller.h
         src/controller/crud_controller.h
         src/model/book_series.h
-        src/model/book_series.cpp src/controller/int_crud_controller.h src/controller/int_crud_controller.cpp src/controller/double_crud_controller.h src/controller/double_crud_controller.cpp src/controller/string_crud_controller.h src/controller/string_crud_controller.cpp src/controller/vector_crud_controller.h src/controller/vector_crud_controller.cpp)
+        src/model/book_series.cpp
+        src/controller/int_crud_controller.h
+        src/controller/int_crud_controller.cpp
+        src/controller/double_crud_controller.h
+        src/controller/double_crud_controller.cpp
+        src/controller/string_crud_controller.h
+        src/controller/string_crud_controller.cpp
+        src/controller/vector_crud_controller.h
+        src/controller/vector_crud_controller.cpp
+        src/controller/book_crud_controller.h
+        src/controller/book_crud_controller.cpp)
 
 add_subdirectory(tst/lib/googletest-master)
 include_directories(tst/lib/googletest-master/googletest include)
