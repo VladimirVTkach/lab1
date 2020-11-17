@@ -26,7 +26,7 @@ public:
     const std::string &GetBiography() const;
 
     /** Adds mention about character and his role in some book */
-    void AddMention(Book *book, CharacterRole characterRole);
+    void AddMention(Book *book, CharacterRole character_role);
 
     /** Returns all mentions about character and his roles in different books */
     const std::map<Book *, CharacterRole> &GetMentions() const;
