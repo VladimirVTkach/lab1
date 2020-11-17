@@ -25,11 +25,11 @@ void BookSeries::RemoveBook(Character *character, Book *book) {
 }
 
 /** @return books that are in one series */
-const std::set<Book *> BookSeries::GetBooksByCharacter(Character *character) {
+const std::set<Book *> &BookSeries::GetBooksByCharacter(Character *character) {
     return series_[character];
 }
 
 /** @return all series of books */
-const std::map<Character *, std::set<Book *>> BookSeries::GetAllSeries() {
+const std::map<Character *, std::set<Book *>> &BookSeries::GetAllSeries() {
     return series_;
 }

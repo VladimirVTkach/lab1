@@ -13,9 +13,9 @@ public:
 
     void RemoveBook(Character *character, Book *book);
 
-    const std::set<Book *> GetBooksByCharacter(Character *character);
+    const std::set<Book *> &GetBooksByCharacter(Character *character);
 
-    const std::map<Character *, std::set<Book *>> GetAllSeries();
+    const std::map<Character *, std::set<Book *>> &GetAllSeries();
 
 private:
     std::map<Character *, std::set<Book *>> series_;
