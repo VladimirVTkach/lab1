@@ -40,7 +40,8 @@ add_executable(lab1 src/main.cpp
         src/controller/vector_crud_controller.h
         src/controller/vector_crud_controller.cpp
         src/controller/book_crud_controller.h
-        src/controller/book_crud_controller.cpp)
+        src/controller/book_crud_controller.cpp
+        tst/model/book_series_tests.cpp)
 
 add_subdirectory(tst/lib/googletest-master)
 include_directories(tst/lib/googletest-master/googletest include)
