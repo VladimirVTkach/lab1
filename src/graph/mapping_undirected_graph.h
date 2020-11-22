@@ -4,7 +4,7 @@
 #include "undirected_graph.h"
 
 template<typename T>
-class MatrixUndirectedGraph : public UndirectedGraph<T> {
+class MappingUndirectedGraph : public UndirectedGraph<T> {
 public:
 
     /** Adds new vertex to the graph

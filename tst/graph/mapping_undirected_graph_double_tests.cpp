@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
-#include "../../src/graph/matrix_undirected_graph.h"
+#include "../../src/graph/mapping_undirected_graph.h"
 
 TEST(matrix_undirected_graph_double_test, test_add_vertex) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.5;
 
@@ -13,7 +13,7 @@ TEST(matrix_undirected_graph_double_test, test_add_vertex) {
 }
 
 TEST(matrix_undirected_graph_double_test, test_add_edge_when_all_vertices_present) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.2;
     double vertex2 = 2.33;
@@ -29,7 +29,7 @@ TEST(matrix_undirected_graph_double_test, test_add_edge_when_all_vertices_presen
 }
 
 TEST(matrix_undirected_graph_double_test, test_add_edge_when_one_vertex_absent) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.1;
     double vertex2 = 2.11;
@@ -40,7 +40,7 @@ TEST(matrix_undirected_graph_double_test, test_add_edge_when_one_vertex_absent) 
 }
 
 TEST(matrix_undirected_graph_double_test, test_remove_vertex) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.6;
 
@@ -53,7 +53,7 @@ TEST(matrix_undirected_graph_double_test, test_remove_vertex) {
 }
 
 TEST(matrix_undirected_graph_double_test, test_remove_vertex_for_all_adjacent_edges_removed_too) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.0;
     double vertex2 = 2.0;
@@ -71,7 +71,7 @@ TEST(matrix_undirected_graph_double_test, test_remove_vertex_for_all_adjacent_ed
 }
 
 TEST(matrix_undirected_graph_double_test, test_remove_edge_when_all_vertices_present) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 3213.1;
     double vertex2 = 3131.1113;
@@ -88,7 +88,7 @@ TEST(matrix_undirected_graph_double_test, test_remove_edge_when_all_vertices_pre
 }
 
 TEST(matrix_undirected_graph_double_test, test_remove_edge_when_one_vertex_absent) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 31.1;
     double vertex2 = 3131.0;
@@ -104,7 +104,7 @@ TEST(matrix_undirected_graph_double_test, test_remove_edge_when_one_vertex_absen
 }
 
 TEST(matrix_undirected_graph_double_test, test_is_linked_when_graph_is_linked) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 11.1;
     double vertex2 = 311.3;
@@ -122,7 +122,7 @@ TEST(matrix_undirected_graph_double_test, test_is_linked_when_graph_is_linked) {
 }
 
 TEST(matrix_undirected_graph_double_test, test_is_linked_when_graph_is_not_linked) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.0;
     double vertex2 = 2.0;
@@ -138,7 +138,7 @@ TEST(matrix_undirected_graph_double_test, test_is_linked_when_graph_is_not_linke
 }
 
 TEST(matrix_undirected_graph_double_test, test_get_distance_when_all_vertices_present) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 31.1;
     double vertex2 = 34.78;
@@ -156,7 +156,7 @@ TEST(matrix_undirected_graph_double_test, test_get_distance_when_all_vertices_pr
 }
 
 TEST(matrix_undirected_graph_double_test, test_get_distance_when_one_vertex_absent) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.0;
     double vertex2 = 2.0;
@@ -176,7 +176,7 @@ TEST(matrix_undirected_graph_double_test, test_get_distance_when_one_vertex_abse
 }
 
 TEST(matrix_undirected_graph_double_test, test_get_vertices_count) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 313.1;
     double vertex2 = 525.1;
@@ -190,7 +190,7 @@ TEST(matrix_undirected_graph_double_test, test_get_vertices_count) {
 }
 
 TEST(matrix_undirected_graph_double_test, test_get_edges_count) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 1.1;
     double vertex2 = 2.2;
@@ -208,7 +208,7 @@ TEST(matrix_undirected_graph_double_test, test_get_edges_count) {
 }
 
 TEST(matrix_undirected_graph_double_test, test_get_adjacent_edges_count) {
-    MatrixUndirectedGraph<double> adjacent_undirected_graph;
+    MappingUndirectedGraph<double> adjacent_undirected_graph;
 
     double vertex1 = 421.2;
     double vertex2 = 425.78;

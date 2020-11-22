@@ -4,10 +4,10 @@
 #include "../../src/model/author.h"
 #include "../../src/model/character.h"
 #include "../../src/model/book.h"
-#include "../../src/graph/matrix_undirected_graph.h"
+#include "../../src/graph/mapping_undirected_graph.h"
 
 TEST(matrix_undirected_graph_book_test, test_add_vertex) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -23,7 +23,7 @@ TEST(matrix_undirected_graph_book_test, test_add_vertex) {
 }
 
 TEST(matrix_undirected_graph_book_test, test_add_edge_when_all_vertices_present) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -51,7 +51,7 @@ TEST(matrix_undirected_graph_book_test, test_add_edge_when_all_vertices_present)
 }
 
 TEST(matrix_undirected_graph_book_test, test_add_edge_when_one_vertex_absent) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -75,7 +75,7 @@ TEST(matrix_undirected_graph_book_test, test_add_edge_when_one_vertex_absent) {
 }
 
 TEST(matrix_undirected_graph_book_test, test_remove_vertex) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -94,7 +94,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_vertex) {
 }
 
 TEST(matrix_undirected_graph_book_test, test_remove_vertex_for_all_adjacent_edges_removed_too) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -125,7 +125,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_vertex_for_all_adjacent_edge
 }
 
 TEST(matrix_undirected_graph_book_test, test_remove_edge_when_all_vertices_present) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -155,7 +155,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_edge_when_all_vertices_prese
 }
 
 TEST(matrix_undirected_graph_book_test, test_remove_edge_when_one_vertex_absent) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -184,7 +184,7 @@ TEST(matrix_undirected_graph_book_test, test_remove_edge_when_one_vertex_absent)
 }
 
 TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_linked) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -222,7 +222,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_linked) {
 }
 
 TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_not_linked) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -258,7 +258,7 @@ TEST(matrix_undirected_graph_book_test, test_is_linked_when_graph_is_not_linked)
 }
 
 TEST(matrix_undirected_graph_book_test, test_get_distance_when_all_vertices_present) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -296,7 +296,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_all_vertices_pres
 }
 
 TEST(matrix_undirected_graph_book_test, test_get_distance_when_one_vertex_absent) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -336,7 +336,7 @@ TEST(matrix_undirected_graph_book_test, test_get_distance_when_one_vertex_absent
 }
 
 TEST(matrix_undirected_graph_book_test, test_get_vertices_count) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -370,7 +370,7 @@ TEST(matrix_undirected_graph_book_test, test_get_vertices_count) {
 }
 
 TEST(matrix_undirected_graph_book_test, test_get_edges_count) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
@@ -408,7 +408,7 @@ TEST(matrix_undirected_graph_book_test, test_get_edges_count) {
 }
 
 TEST(matrix_undirected_graph_book_test, test_get_adjacent_edges_count) {
-    MatrixUndirectedGraph<Book> adjacent_undirected_graph;
+    MappingUndirectedGraph<Book> adjacent_undirected_graph;
 
     Book vertex1("Book 1",
                  {Author("Ivan",
