@@ -79,6 +79,16 @@ public:
         console_view_.ShowMainMenu();
     };
 
+    bool IsLinked() {
+        bool is_linked = undirected_graph_.IsLinked();
+
+        if(is_linked) {
+            console_view_.ShowMessage("graph linked");
+        } else {
+            console_view_.ShowMessage("graph is not linked");
+        }
+    }
+
 protected:
     UndirectedGraph<T> &undirected_graph_;
     ConsoleView console_view_;
