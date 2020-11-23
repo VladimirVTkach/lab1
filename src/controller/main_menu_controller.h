@@ -17,7 +17,7 @@ public:
         console_view_.ShowMainMenu();
         while (true) {
             int option = std::stoi(console_view_.GetUserInput("Your option"));
-            if (option <= 0 || option > 10) {
+            if (option <= 0 || option > 11) {
                 console_view_.ShowMessage("Invalid option chosen");
             } else {
                 if (option == 1) {
@@ -39,6 +39,8 @@ public:
                 } else if (option == 9) {
                     console_view_.ShowGraph(undirected_graph_);
                 } else if (option == 10) {
+                    crud_controller_.IsLinked();
+                } else if (option == 11) {
                     return;
                 }
             }
