@@ -83,7 +83,7 @@ public:
         bool is_linked = undirected_graph_.IsLinked();
 
         if(is_linked) {
-            console_view_.ShowMessage("graph linked");
+            console_view_.ShowMessage("graph is linked");
         } else {
             console_view_.ShowMessage("graph is not linked");
         }
