@@ -79,7 +79,20 @@ public:
         console_view_.ShowMainMenu();
     };
 
-    bool IsLinked() {
+    void FindDistance() {
+        T left_vertex = GetVertex("Enter left vertex value");
+        T right_vertex = GetVertex("Enter right vertex value");
+        try {
+            int distance = undirected_graph_.GetDistance(left_vertex, right_vertex);
+            console_view_.ShowMessage(std::to_string(distance));
+            console_view_.ShowMainMenu();
+        } catch (std::runtime_error &e) {
+            console_view_.ShowMessage(e.what());
+            console_view_.ShowMainMenu();
+        }
+    }
+
+    void IsLinked() {
         bool is_linked = undirected_graph_.IsLinked();
 
         if(is_linked) {
@@ -87,6 +100,8 @@ public:
         } else {
             console_view_.ShowMessage("graph is not linked");
         }
+
+        console_view_.ShowMainMenu();
     }
 
 protected:
