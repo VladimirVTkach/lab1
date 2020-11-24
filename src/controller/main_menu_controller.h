@@ -17,7 +17,7 @@ public:
         console_view_.ShowMainMenu();
         while (true) {
             int option = std::stoi(console_view_.GetUserInput("Your option"));
-            if (option <= 0 || option > 11) {
+            if (option <= 0 || option > 12) {
                 console_view_.ShowMessage("Invalid option chosen");
             } else {
                 if (option == 1) {
