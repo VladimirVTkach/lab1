@@ -18,14 +18,14 @@ add_executable(lab1 src/main.cpp
         src/graph/undirected_graph.h
         src/graph/adjacent_undirected_graph.h
         tst/graph/adjacent_undirected_graph_int_tests.cpp
-        src/graph/matrix_undirected_graph.h
-        tst/graph/matrix_undirected_graph_int_tests.cpp
+        src/graph/mapping_undirected_graph.h
+        tst/graph/mapping_undirected_graph_int_tests.cpp
         src/graph/vertex.h
         src/graph/edge.h
         tst/graph/adjacent_undirected_graph_double_tests.cpp
-        tst/graph/matrix_undirected_graph_double_tests.cpp
+        tst/graph/mapping_undirected_graph_double_tests.cpp
         tst/graph/adjacent_undirected_graph_book_tests.cpp
-        tst/graph/matrix_undirected_graph_book_tests.cpp
+        tst/graph/mapping_undirected_graph_book_tests.cpp
         src/view/console_view.h
         src/controller/main_menu_controller.h
         src/controller/crud_controller.h
@@ -41,7 +41,8 @@ add_executable(lab1 src/main.cpp
         src/controller/vector_crud_controller.cpp
         src/controller/book_crud_controller.h
         src/controller/book_crud_controller.cpp
-        tst/model/book_series_tests.cpp)
+        tst/model/book_series_tests.cpp
+        src/graph/matrix_undirected_graph.h)
 
 add_subdirectory(tst/lib/googletest-master)
 include_directories(tst/lib/googletest-master/googletest include)
