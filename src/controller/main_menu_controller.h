@@ -39,8 +39,10 @@ public:
                 } else if (option == 9) {
                     console_view_.ShowGraph(undirected_graph_);
                 } else if (option == 10) {
-                    crud_controller_.IsLinked();
+                    crud_controller_.FindDistance();
                 } else if (option == 11) {
+                    crud_controller_.IsLinked();
+                } else if (option == 12) {
                     return;
                 }
             }
